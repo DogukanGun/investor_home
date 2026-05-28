@@ -1,0 +1,17 @@
+# Python
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Data / scrape cache / db
+backend/data/*.db
+backend/data/html_cache/
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+
+# Env / editor
+.env
+.DS_Store
