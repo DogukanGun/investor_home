@@ -1,25 +1,21 @@
-import { NavLink, Navigate, Route, Routes } from "react-router-dom";
-import SearchesPage from "./pages/SearchesPage";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import DashboardPage from "./pages/DashboardPage";
 import ListingsPage from "./pages/ListingsPage";
 import AreasPage from "./pages/AreasPage";
+import SearchesPage from "./pages/SearchesPage";
 
 export default function App() {
   return (
-    <div className="app">
-      <header className="topbar">
-        <h1>InvestorHome</h1>
-        <nav>
-          <NavLink to="/searches">Searches</NavLink>
-          <NavLink to="/listings">Listings</NavLink>
-          <NavLink to="/areas">Areas &amp; Index</NavLink>
-        </nav>
-      </header>
-      <main>
+    <div className="shell">
+      <Sidebar />
+      <main className="main">
         <Routes>
-          <Route path="/" element={<Navigate to="/searches" replace />} />
-          <Route path="/searches" element={<SearchesPage />} />
-          <Route path="/listings" element={<ListingsPage />} />
+          <Route path="/" element={<Navigate to="/overview" replace />} />
+          <Route path="/overview" element={<DashboardPage />} />
+          <Route path="/browse" element={<ListingsPage />} />
           <Route path="/areas" element={<AreasPage />} />
+          <Route path="/searches" element={<SearchesPage />} />
         </Routes>
       </main>
     </div>
