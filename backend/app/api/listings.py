@@ -37,6 +37,10 @@ class ListingOut(BaseModel):
     deal_rating: str
     gross_yield: Optional[float]
     last_seen_at: str
+    currency: str
+    country: str
+    latitude: Optional[float]
+    longitude: Optional[float]
 
 
 @router.get("", response_model=list[ListingOut])
@@ -49,11 +53,14 @@ def list_listings(
     property_type: Optional[PropertyType] = None,
     price_min: Optional[float] = None,
     price_max: Optional[float] = None,
+    country: Optional[str] = None,
     rating: Optional[str] = None,
     sort: str = Query("undervaluation", pattern="^(undervaluation|price|price_per_m2|yield)$"),
     limit: int = 200,
 ):
     stmt = select(Listing).where(Listing.is_active, Listing.listing_kind == listing_kind)
+    if country:
+        stmt = stmt.where(Listing.country == country)
     if city:
         stmt = stmt.where(Listing.city.ilike(f"%{city}%"))
     if postal_code:
@@ -101,6 +108,10 @@ def list_listings(
                 deal_rating=rate,
                 gross_yield=yld,
                 last_seen_at=ls.last_seen_at.isoformat(),
+                currency=ls.currency or "EUR",
+                country=ls.country or "de",
+                latitude=ls.latitude,
+                longitude=ls.longitude,
             )
         )
 

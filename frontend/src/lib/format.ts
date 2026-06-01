@@ -40,4 +40,25 @@ export const portalLabel: Record<string, string> = {
   immoscout: "ImmoScout24",
   immowelt: "Immowelt",
   sparkasse: "Sparkasse",
+  idealista: "Idealista",
+  idealista_pt: "Idealista PT",
+  seloger: "SeLoger",
+  funda: "Funda",
+  rightmove: "Rightmove",
+};
+
+export const countryLabel: Record<string, string> = {
+  de: "🇩🇪 Germany",
+  es: "🇪🇸 Spain",
+  pt: "🇵🇹 Portugal",
+  fr: "🇫🇷 France",
+  nl: "🇳🇱 Netherlands",
+  gb: "🇬🇧 United Kingdom",
+};
+
+/** Format a price with the correct currency symbol. */
+export const price = (n?: number | null, currency = "EUR"): string => {
+  if (n == null) return "—";
+  const formatted = n.toLocaleString("de-DE", { maximumFractionDigits: 0 });
+  return currency === "GBP" ? `£${n.toLocaleString("en-GB", { maximumFractionDigits: 0 })}` : `${formatted} €`;
 };

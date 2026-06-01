@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { api } from "../api/client";
 import type { Listing } from "../api/types";
 import { euroCompact, pctSigned, ppm2 } from "../lib/format";
@@ -15,6 +16,7 @@ function median(nums: number[]): number | null {
 }
 
 export default function DashboardPage() {
+  const { t } = useTranslation();
   const { data: listings = [], isFetching } = useQuery({
     queryKey: ["listings", { listing_kind: "sale", sort: "undervaluation" }],
     queryFn: () => api.listListings({ listing_kind: "sale", sort: "undervaluation" }),
@@ -30,30 +32,30 @@ export default function DashboardPage() {
     <>
       <div className="page-head">
         <div>
-          <div className="eyebrow">Overview</div>
-          <h1 className="page-title">What&apos;s a good buy right now</h1>
+          <div className="eyebrow">{t("dashboard.eyebrow")}</div>
+          <h1 className="page-title">{t("dashboard.title")}</h1>
           <div className="page-sub">
-            Listings ranked by price per m² against the local median.{" "}
+            {t("dashboard.sub")}{" "}
             {isFetching && <span className="spin" />}
           </div>
         </div>
-        <Link className="btn ghost" to="/browse">Browse all deals →</Link>
+        <Link className="btn ghost" to="/browse">{t("dashboard.browseAll")}</Link>
       </div>
 
       {listings.length === 0 ? (
         <EmptyState
-          title="No listings yet"
-          hint="Create a saved search for a city or postal code, then run a scrape."
-          cta={{ to: "/searches", label: "Set up a search" }}
+          title={t("dashboard.empty")}
+          hint={t("dashboard.emptyHint")}
+          cta={{ to: "/searches", label: t("dashboard.setUp") }}
         />
       ) : (
         <>
           <div className="kpi-row">
-            <KpiTile label="Active buy listings" value={String(listings.length)} foot="across all portals" delay={0} />
-            <KpiTile label="Good deals" value={String(goodDeals.length)} good foot="≥10% below area median" delay={60} />
-            <KpiTile label="Median price" value={ppm2(medPpm2)} foot="of all listings shown" delay={120} />
+            <KpiTile label={t("dashboard.kpi.activeListings")} value={String(listings.length)} foot={t("dashboard.kpi.acrossPortals")} delay={0} />
+            <KpiTile label={t("dashboard.kpi.goodDeals")} value={String(goodDeals.length)} good foot={t("dashboard.kpi.belowMedian")} delay={60} />
+            <KpiTile label={t("dashboard.kpi.medianPrice")} value={ppm2(medPpm2)} foot={t("dashboard.kpi.ofAllListings")} delay={120} />
             <KpiTile
-              label="Best undervaluation"
+              label={t("dashboard.kpi.bestUndervaluation")}
               value={best ? pctSigned(best.undervaluation) : "—"}
               good
               foot={best ? `${euroCompact(best.price)} · ${best.postal_code ?? best.city}` : undefined}
@@ -62,7 +64,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="section-title">
-            Top deals <span className="count">{topDeals.length} of {listings.length}</span>
+            {t("dashboard.topDeals")} <span className="count">{topDeals.length} {t("dashboard.of")} {listings.length}</span>
           </div>
           <div className="card-grid">
             {topDeals.map((l, i) => (
@@ -73,7 +75,7 @@ export default function DashboardPage() {
           {areas.length > 0 && (
             <>
               <div className="section-title">
-                Areas <span className="count">{areas.length}</span>
+                {t("dashboard.areas")} <span className="count">{areas.length}</span>
               </div>
               <div className="stat-grid">
                 {areas.slice(0, 8).map((a) => (
@@ -81,8 +83,8 @@ export default function DashboardPage() {
                     <div className="stat-key">{a.area_key}</div>
                     <div className="stat-big mono">{ppm2(a.sale_median_ppm2)}</div>
                     <div className="stat-sub">
-                      <span>median sale</span>
-                      <span className="mono">{a.sale_samples} listings</span>
+                      <span>{t("dashboard.medianSale")}</span>
+                      <span className="mono">{a.sale_samples} {t("dashboard.listings")}</span>
                     </div>
                   </Link>
                 ))}

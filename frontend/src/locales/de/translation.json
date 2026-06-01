@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "overview": "Übersicht",
+    "browse": "Angebote",
+    "areas": "Gebiete & Index",
+    "searches": "Suchen",
+    "analysis": "Analysen"
+  },
+  "sidebar": {
+    "sub": "Immobilien-Terminal",
+    "foot": "Buy-to-let Analysen für Europa. Angebote nach €/m² vs. lokalem Median bewertet."
+  },
+  "dashboard": {
+    "eyebrow": "Übersicht",
+    "title": "Was ist gerade ein guter Kauf?",
+    "sub": "Angebote sortiert nach Preis pro m² im Vergleich zum lokalen Median.",
+    "browseAll": "Alle Angebote →",
+    "kpi": {
+      "activeListings": "Aktive Kaufangebote",
+      "acrossPortals": "über alle Portale",
+      "goodDeals": "Gute Deals",
+      "belowMedian": "≥10% unter dem Gebietsmedian",
+      "medianPrice": "Medianpreis",
+      "ofAllListings": "aller angezeigten Angebote",
+      "bestUndervaluation": "Beste Unterbewertung"
+    },
+    "topDeals": "Top-Angebote",
+    "of": "von",
+    "areas": "Gebiete",
+    "medianSale": "Median Verkauf",
+    "listings": "Angebote",
+    "empty": "Noch keine Angebote",
+    "emptyHint": "Erstelle eine gespeicherte Suche für eine Stadt oder PLZ und starte dann einen Scrape.",
+    "setUp": "Suche einrichten"
+  },
+  "browse": {
+    "eyebrow": "Durchsuchen",
+    "title": "Kaufangebote",
+    "listings": "Angebote",
+    "filter": {
+      "all": "Alle",
+      "good": "Gut",
+      "fair": "Fair",
+      "overpriced": "Überteuert",
+      "city": "Stadt",
+      "cityPlaceholder": "beliebig",
+      "country": "Land",
+      "countryAll": "alle",
+      "portal": "Portal",
+      "portalAll": "alle",
+      "sortBy": "Sortieren nach"
+    },
+    "sort": {
+      "bestDeal": "Bestes Angebot",
+      "ppm2Low": "€/m² (aufsteigend)",
+      "priceLow": "Preis (aufsteigend)",
+      "grossYield": "Brutto-Rendite"
+    },
+    "table": {
+      "deal": "Deal",
+      "location": "Standort",
+      "price": "Preis",
+      "area": "m²",
+      "ppm2": "€/m²",
+      "median": "Median",
+      "vsArea": "vs. Gebiet",
+      "portal": "Portal"
+    },
+    "noMatch": "Keine Angebote gefunden",
+    "noMatchHint": "Filter zurücksetzen oder Scrape aus den Suchen starten.",
+    "goToSearches": "Zu den Suchen"
+  },
+  "areas": {
+    "eyebrow": "Markt",
+    "title": "Gebiete & Preisindex",
+    "sub": "Median €/m² pro Postleitzahl und Trendentwicklung.",
+    "medianSalePrice": "Median Verkaufspreis",
+    "listings": "Angebote",
+    "priceIndex": "Preisindex",
+    "basePeriod": "Basisperiode = 100",
+    "needMoreDays": "Mindestens zwei Scrape-Tage erforderlich. Derzeit {{count}} Datenpunkt(e). Am nächsten Tag erneut scrapen.",
+    "empty": "Noch keine Gebietsstatistiken",
+    "emptyHint": "Starte einen Scrape, um Median-Werte zu befüllen.",
+    "goToSearches": "Zu den Suchen"
+  },
+  "searches": {
+    "eyebrow": "Konfigurieren",
+    "title": "Suchen",
+    "sub": "Jede gespeicherte Suche steuert das Scraping über alle Portale.",
+    "newSearch": "Neue gespeicherte Suche",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "z.B. München Mitte",
+      "city": "Stadt",
+      "postalCode": "Postleitzahl",
+      "country": "Land",
+      "kind": "Art",
+      "type": "Typ",
+      "priceMin": "Mindestpreis €",
+      "priceMax": "Höchstpreis €",
+      "sizeMin": "Mindestgröße m²",
+      "sizeMax": "Höchstgröße m²",
+      "roomsMin": "Min. Zimmer",
+      "roomsMax": "Max. Zimmer",
+      "sale": "Kauf",
+      "rent": "Miete",
+      "apartment": "Wohnung",
+      "house": "Haus",
+      "addSearch": "Suche hinzufügen",
+      "saving": "Speichern…",
+      "importCities": "🇩🇪 Top 50 Städte importieren",
+      "importing": "Importieren…"
+    },
+    "table": {
+      "name": "Name",
+      "location": "Ort",
+      "country": "Land",
+      "kind": "Art",
+      "type": "Typ",
+      "active": "Aktiv"
+    },
+    "savedSearches": "Gespeicherte Suchen",
+    "noSearches": "Noch keine Suchen. Oben hinzufügen.",
+    "scrapeNow": "Jetzt scrapen",
+    "scraping": "Scraping…",
+    "delete": "Löschen",
+    "importSuccess": "✓ {{created}} Städte importiert, {{skipped}} bereits vorhanden.",
+    "scrapeSuccess": "✓ Gescrapt: {{scraped}}, behalten: {{kept}}"
+  },
+  "card": {
+    "belowAreaMedian": "unter dem Gebietsmedian",
+    "vsAreaMedian": "vs. Gebietsmedian",
+    "rooms": "Zimmer",
+    "median": "Median",
+    "viewListing": "Angebot ansehen",
+    "cheap": "günstig",
+    "pricey": "teuer"
+  },
+  "deal": {
+    "good": "Guter Deal",
+    "fair": "Fairer Preis",
+    "overpriced": "Überteuert",
+    "unknown": "Kein Vergleich"
+  },
+  "map": {
+    "noGeocoded": "Noch keine geokodierten Angebote.",
+    "runScrape": "Scrape starten — Koordinaten werden automatisch abgerufen.",
+    "geocodedOf": "{{mapped}} von {{total}} Angeboten geokodiert",
+    "viewListing": "Angebot ansehen ↗",
+    "vsArea": "vs. Gebiet"
+  },
+  "toggle": {
+    "cards": "Karten",
+    "table": "Tabelle",
+    "map": "Karte"
+  },
+  "lang": {
+    "en": "EN",
+    "de": "DE",
+    "fr": "FR",
+    "tr": "TR"
+  },
+  "analysis": {
+    "title": "Preisanalyse",
+    "sub": "Verteilung, Trends, Heatmap und Renditerechner für Ihre gescrapten Märkte.",
+    "dist": {
+      "title": "Preisverteilung",
+      "sub": "Wie sich Angebote auf €/m²-Bereiche verteilen.",
+      "noData": "Noch keine Angebote mit Preisdaten.",
+      "median": "Median",
+      "listings": "Angebote",
+      "xLabel": "€/m²"
+    },
+    "heatmap": {
+      "title": "Gebiets-Heatmap",
+      "sub": "Median €/m² pro Gebiet — Farbe zeigt relative Position. Pfeile zeigen Periodentrend.",
+      "samples": "Angebote",
+      "up": "↑ steigend",
+      "down": "↓ fallend",
+      "stable": "→ stabil",
+      "noTrend": "—",
+      "rent": "Miete",
+      "range": "Spanne"
+    },
+    "history": {
+      "title": "Preisentwicklung",
+      "sub": "€/m²-Trends über bis zu 5 Gebiete vergleichen.",
+      "selectHint": "Gebiete zum Vergleich auswählen",
+      "noData": "Mindestens ein Gebiet wählen und an mehreren Tagen scrapen.",
+      "index": "Index (Basis=100)",
+      "absolute": "Absolut €/m²",
+      "mode": "Anzeige"
+    },
+    "yield": {
+      "title": "Renditerechner",
+      "sub": "Rendite für ein Kaufobjekt schätzen.",
+      "purchasePrice": "Kaufpreis (€)",
+      "area": "Wohnfläche (m²)",
+      "monthlyRent": "Monatsmiete (€)",
+      "purchaseCosts": "Kaufnebenkosten (%)",
+      "purchaseCostsHint": "Notar, Steuer, Makler — typisch 8–12% in Deutschland",
+      "monthlyExpenses": "Monatliche Kosten (€)",
+      "expensesHint": "Verwaltung, Instandhaltung, Versicherung",
+      "mortgageRate": "Zinssatz (%)",
+      "ltv": "Beleihungsquote (%)",
+      "grossYield": "Bruttorendite",
+      "netYield": "Nettorendite",
+      "monthlyCashflow": "Monatlicher Cashflow",
+      "cashOnCash": "Cash-on-Cash-Rendite",
+      "breakEven": "Amortisation",
+      "years": "J.",
+      "perMonth": "/ Mo.",
+      "fillAll": "Kaufpreis und Miete eingeben, um Ergebnisse zu sehen."
+    },
+    "eyebrow": "Analysen"
+  }
+}

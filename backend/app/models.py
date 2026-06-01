@@ -15,6 +15,11 @@ class Portal(str, Enum):
     immoscout = "immoscout"
     immowelt = "immowelt"
     sparkasse = "sparkasse"
+    idealista = "idealista"
+    idealista_pt = "idealista_pt"
+    seloger = "seloger"
+    funda = "funda"
+    rightmove = "rightmove"
 
 
 class ListingKind(str, Enum):
@@ -34,6 +39,7 @@ class SavedSearchBase(SQLModel):
     name: str
     city: str
     postal_code: Optional[str] = None
+    country: str = Field(default="de")
     listing_kind: ListingKind = ListingKind.sale
     property_type: PropertyType = PropertyType.apartment
     price_min: Optional[float] = None
@@ -59,6 +65,7 @@ class SavedSearchUpdate(SQLModel):
     name: Optional[str] = None
     city: Optional[str] = None
     postal_code: Optional[str] = None
+    country: Optional[str] = None
     listing_kind: Optional[ListingKind] = None
     property_type: Optional[PropertyType] = None
     price_min: Optional[float] = None
@@ -91,6 +98,10 @@ class Listing(SQLModel, table=True):
     living_area_m2: Optional[float] = None
     rooms: Optional[float] = None
     price_per_m2: Optional[float] = Field(default=None, index=True)
+    currency: str = Field(default="EUR")
+    country: str = Field(default="de")
+    latitude: Optional[float] = Field(default=None)
+    longitude: Optional[float] = Field(default=None)
     first_seen_at: datetime = Field(default_factory=utcnow)
     last_seen_at: datetime = Field(default_factory=utcnow)
     is_active: bool = Field(default=True, index=True)

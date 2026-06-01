@@ -1,12 +1,13 @@
 export type ListingKind = "sale" | "rent";
 export type PropertyType = "apartment" | "house";
-export type Portal = "immoscout" | "immowelt" | "sparkasse";
+export type Portal = "immoscout" | "immowelt" | "sparkasse" | "idealista" | "idealista_pt" | "seloger" | "funda" | "rightmove";
 
 export interface SavedSearch {
   id: number;
   name: string;
   city: string;
   postal_code?: string | null;
+  country: string;
   listing_kind: ListingKind;
   property_type: PropertyType;
   price_min?: number | null;
@@ -19,7 +20,7 @@ export interface SavedSearch {
   created_at: string;
 }
 
-export type SavedSearchInput = Omit<SavedSearch, "id" | "created_at">;
+export type SavedSearchInput = Omit<SavedSearch, "id" | "created_at"> & { country: string };
 
 export interface Listing {
   id: number;
@@ -39,6 +40,10 @@ export interface Listing {
   deal_rating: "good" | "fair" | "overpriced" | "unknown";
   gross_yield?: number | null;
   last_seen_at: string;
+  currency: string;
+  country: string;
+  latitude?: number | null;
+  longitude?: number | null;
 }
 
 export interface AreaSummary {
@@ -54,4 +59,15 @@ export interface IndexPoint {
   median_price_per_m2: number | null;
   index: number | null;
   sample_count: number;
+}
+
+export interface AreaTrend {
+  area_key: string;
+  sale_current: number | null;
+  sale_previous: number | null;
+  sale_trend_pct: number | null;
+  rent_current: number | null;
+  sale_samples: number;
+  p25_ppm2: number | null;
+  p75_ppm2: number | null;
 }

@@ -40,6 +40,7 @@ class RawListing:
     price: Optional[float] = None
     living_area_m2: Optional[float] = None
     rooms: Optional[float] = None
+    currency: str = "EUR"
 
     @property
     def price_per_m2(self) -> Optional[float]:
@@ -50,6 +51,7 @@ class RawListing:
 
 class BaseScraper:
     portal: Portal
+    country: str = "de"
 
     def __init__(self) -> None:
         self._last_request = 0.0

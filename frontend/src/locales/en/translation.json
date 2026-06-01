@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "overview": "Overview",
+    "browse": "Browse deals",
+    "areas": "Areas & index",
+    "searches": "Searches",
+    "analysis": "Insights"
+  },
+  "sidebar": {
+    "sub": "Property terminal",
+    "foot": "Buy-to-let analytics across Europe. Deals ranked by €/m² vs local median."
+  },
+  "dashboard": {
+    "eyebrow": "Overview",
+    "title": "What's a good buy right now",
+    "sub": "Listings ranked by price per m² against the local median.",
+    "browseAll": "Browse all deals →",
+    "kpi": {
+      "activeListings": "Active buy listings",
+      "acrossPortals": "across all portals",
+      "goodDeals": "Good deals",
+      "belowMedian": "≥10% below area median",
+      "medianPrice": "Median price",
+      "ofAllListings": "of all listings shown",
+      "bestUndervaluation": "Best undervaluation"
+    },
+    "topDeals": "Top deals",
+    "of": "of",
+    "areas": "Areas",
+    "medianSale": "median sale",
+    "listings": "listings",
+    "empty": "No listings yet",
+    "emptyHint": "Create a saved search for a city or postal code, then run a scrape.",
+    "setUp": "Set up a search"
+  },
+  "browse": {
+    "eyebrow": "Browse",
+    "title": "Buy listings",
+    "listings": "listings",
+    "filter": {
+      "all": "All",
+      "good": "Good",
+      "fair": "Fair",
+      "overpriced": "Overpriced",
+      "city": "City",
+      "cityPlaceholder": "any",
+      "country": "Country",
+      "countryAll": "all",
+      "portal": "Portal",
+      "portalAll": "all",
+      "sortBy": "Sort by"
+    },
+    "sort": {
+      "bestDeal": "Best deal",
+      "ppm2Low": "€/m² (low→high)",
+      "priceLow": "Price (low→high)",
+      "grossYield": "Gross yield"
+    },
+    "table": {
+      "deal": "Deal",
+      "location": "Location",
+      "price": "Price",
+      "area": "m²",
+      "ppm2": "€/m²",
+      "median": "Median",
+      "vsArea": "vs area",
+      "portal": "Portal"
+    },
+    "noMatch": "No listings match",
+    "noMatchHint": "Try clearing filters or run a scrape from Searches.",
+    "goToSearches": "Go to searches"
+  },
+  "areas": {
+    "eyebrow": "Market",
+    "title": "Areas & price index",
+    "sub": "Median €/m² per postal area, and how it trends over time.",
+    "medianSalePrice": "median sale price",
+    "listings": "listings",
+    "priceIndex": "Price index",
+    "basePeriod": "base period = 100",
+    "needMoreDays": "Need at least two scrape days to plot a trend. Currently {{count}} data point(s). Re-scrape on another day and the curve appears here.",
+    "empty": "No area stats yet",
+    "emptyHint": "Scrape a search to populate per-area medians.",
+    "goToSearches": "Go to searches"
+  },
+  "searches": {
+    "eyebrow": "Configure",
+    "title": "Searches",
+    "sub": "Each saved search drives scraping across portals.",
+    "newSearch": "New saved search",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "e.g. Munich centre",
+      "city": "City",
+      "postalCode": "Postal code",
+      "country": "Country",
+      "kind": "Kind",
+      "type": "Type",
+      "priceMin": "Price min €",
+      "priceMax": "Price max €",
+      "sizeMin": "Size min m²",
+      "sizeMax": "Size max m²",
+      "roomsMin": "Rooms min",
+      "roomsMax": "Rooms max",
+      "sale": "Sale (buy)",
+      "rent": "Rent",
+      "apartment": "Apartment",
+      "house": "House",
+      "addSearch": "Add search",
+      "saving": "Saving…",
+      "importCities": "🇩🇪 Import top 50 cities",
+      "importing": "Importing…"
+    },
+    "table": {
+      "name": "Name",
+      "location": "Location",
+      "country": "Country",
+      "kind": "Kind",
+      "type": "Type",
+      "active": "Active"
+    },
+    "savedSearches": "Saved searches",
+    "noSearches": "No searches yet. Add one above.",
+    "scrapeNow": "Scrape now",
+    "scraping": "Scraping…",
+    "delete": "Delete",
+    "importSuccess": "✓ Imported {{created}} cities, {{skipped}} already existed.",
+    "scrapeSuccess": "✓ Scraped {{scraped}}, kept {{kept}}"
+  },
+  "card": {
+    "belowAreaMedian": "below area median",
+    "vsAreaMedian": "vs area median",
+    "rooms": "rooms",
+    "median": "median",
+    "viewListing": "View listing",
+    "cheap": "cheap",
+    "pricey": "pricey"
+  },
+  "deal": {
+    "good": "Good deal",
+    "fair": "Fair price",
+    "overpriced": "Overpriced",
+    "unknown": "No benchmark"
+  },
+  "map": {
+    "noGeocoded": "No geocoded listings yet.",
+    "runScrape": "Run a scrape — coordinates are fetched automatically.",
+    "geocodedOf": "{{mapped}} of {{total}} listings geocoded",
+    "viewListing": "View listing ↗",
+    "vsArea": "vs area"
+  },
+  "toggle": {
+    "cards": "Cards",
+    "table": "Table",
+    "map": "Map"
+  },
+  "lang": {
+    "en": "EN",
+    "de": "DE",
+    "fr": "FR",
+    "tr": "TR"
+  },
+  "analysis": {
+    "title": "Price Analysis",
+    "sub": "Distribution, trends, heatmap and yield calculator across your scraped markets.",
+    "dist": {
+      "title": "Price distribution",
+      "sub": "How listings spread across €/m² buckets.",
+      "noData": "No listings with price data yet.",
+      "median": "Median",
+      "listings": "listings",
+      "xLabel": "€/m²"
+    },
+    "heatmap": {
+      "title": "Area heatmap",
+      "sub": "Median €/m² per area — colour shows relative position. Arrows show period-on-period trend.",
+      "samples": "listings",
+      "up": "↑ price rising",
+      "down": "↓ price falling",
+      "stable": "→ stable",
+      "noTrend": "—",
+      "rent": "rent",
+      "range": "range"
+    },
+    "history": {
+      "title": "Price history",
+      "sub": "Compare €/m² trends across up to 5 areas.",
+      "selectHint": "Select areas to compare",
+      "noData": "Select at least one area above, then scrape on multiple days to see a trend.",
+      "index": "Index (base=100)",
+      "absolute": "Absolute €/m²",
+      "mode": "Show as"
+    },
+    "yield": {
+      "title": "Yield calculator",
+      "sub": "Estimate returns on a buy-to-let purchase.",
+      "purchasePrice": "Purchase price (€)",
+      "area": "Living area (m²)",
+      "monthlyRent": "Monthly rent (€)",
+      "purchaseCosts": "Purchase costs (%)",
+      "purchaseCostsHint": "Notary, tax, agent — typically 8–12% in Germany",
+      "monthlyExpenses": "Monthly expenses (€)",
+      "expensesHint": "Management, maintenance, insurance",
+      "mortgageRate": "Mortgage rate (%)",
+      "ltv": "LTV (%)",
+      "grossYield": "Gross yield",
+      "netYield": "Net yield",
+      "monthlyCashflow": "Monthly cashflow",
+      "cashOnCash": "Cash-on-cash return",
+      "breakEven": "Break-even",
+      "years": "yrs",
+      "perMonth": "/ mo",
+      "fillAll": "Fill in purchase price and rent to see results."
+    },
+    "eyebrow": "Insights"
+  }
+}

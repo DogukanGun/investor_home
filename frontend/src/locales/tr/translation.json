@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "overview": "Genel Bakış",
+    "browse": "İlanlar",
+    "areas": "Bölgeler & Endeks",
+    "searches": "Aramalar",
+    "analysis": "Analiz"
+  },
+  "sidebar": {
+    "sub": "Gayrimenkul Terminali",
+    "foot": "Avrupa geneli kiralık-yatırım analitiği. Fırsatlar €/m² ile yerel medyana göre sıralanır."
+  },
+  "dashboard": {
+    "eyebrow": "Genel Bakış",
+    "title": "Şu an iyi bir alım fırsatı nerede?",
+    "sub": "İlanlar, yerel medyana göre m² fiyatıyla sıralanmıştır.",
+    "browseAll": "Tüm fırsatları gör →",
+    "kpi": {
+      "activeListings": "Aktif satılık ilan",
+      "acrossPortals": "tüm portallarda",
+      "goodDeals": "İyi fırsatlar",
+      "belowMedian": "Bölge medyanının ≥%10 altında",
+      "medianPrice": "Medyan fiyat",
+      "ofAllListings": "gösterilen tüm ilanların",
+      "bestUndervaluation": "En iyi değer altı"
+    },
+    "topDeals": "En iyi fırsatlar",
+    "of": "/",
+    "areas": "Bölgeler",
+    "medianSale": "medyan satış",
+    "listings": "ilan",
+    "empty": "Henüz ilan yok",
+    "emptyHint": "Bir şehir veya posta kodu için kayıtlı arama oluşturun, ardından tarama başlatın.",
+    "setUp": "Arama kur"
+  },
+  "browse": {
+    "eyebrow": "İlanlar",
+    "title": "Satılık ilanlar",
+    "listings": "ilan",
+    "filter": {
+      "all": "Tümü",
+      "good": "İyi fırsat",
+      "fair": "Makul",
+      "overpriced": "Pahalı",
+      "city": "Şehir",
+      "cityPlaceholder": "hepsi",
+      "country": "Ülke",
+      "countryAll": "hepsi",
+      "portal": "Portal",
+      "portalAll": "hepsi",
+      "sortBy": "Sırala"
+    },
+    "sort": {
+      "bestDeal": "En iyi fırsat",
+      "ppm2Low": "€/m² (düşükten yükseğe)",
+      "priceLow": "Fiyat (düşükten yükseğe)",
+      "grossYield": "Brüt getiri"
+    },
+    "table": {
+      "deal": "Fırsat",
+      "location": "Konum",
+      "price": "Fiyat",
+      "area": "m²",
+      "ppm2": "€/m²",
+      "median": "Medyan",
+      "vsArea": "bölgeye göre",
+      "portal": "Portal"
+    },
+    "noMatch": "Eşleşen ilan yok",
+    "noMatchHint": "Filtreleri temizleyin veya Aramalar'dan tarama başlatın.",
+    "goToSearches": "Aramalara git"
+  },
+  "areas": {
+    "eyebrow": "Piyasa",
+    "title": "Bölgeler & Fiyat Endeksi",
+    "sub": "Posta koduna göre medyan €/m² ve zaman içindeki eğilim.",
+    "medianSalePrice": "medyan satış fiyatı",
+    "listings": "ilan",
+    "priceIndex": "Fiyat endeksi",
+    "basePeriod": "baz dönem = 100",
+    "needMoreDays": "Trend çizmek için en az iki tarama günü gerekli. Şu an {{count}} veri noktası. Başka bir gün yeniden tarayın.",
+    "empty": "Henüz bölge istatistiği yok",
+    "emptyHint": "Medyan değerleri doldurmak için bir tarama başlatın.",
+    "goToSearches": "Aramalara git"
+  },
+  "searches": {
+    "eyebrow": "Yapılandır",
+    "title": "Aramalar",
+    "sub": "Her kayıtlı arama, tüm portallarda taramayı yönetir.",
+    "newSearch": "Yeni kayıtlı arama",
+    "form": {
+      "name": "Ad",
+      "namePlaceholder": "ör. Münih merkez",
+      "city": "Şehir",
+      "postalCode": "Posta kodu",
+      "country": "Ülke",
+      "kind": "Tür",
+      "type": "Tip",
+      "priceMin": "Min fiyat €",
+      "priceMax": "Maks fiyat €",
+      "sizeMin": "Min alan m²",
+      "sizeMax": "Maks alan m²",
+      "roomsMin": "Min oda",
+      "roomsMax": "Maks oda",
+      "sale": "Satılık",
+      "rent": "Kiralık",
+      "apartment": "Daire",
+      "house": "Ev",
+      "addSearch": "Arama ekle",
+      "saving": "Kaydediliyor…",
+      "importCities": "🇩🇪 50 şehri içe aktar",
+      "importing": "İçe aktarılıyor…"
+    },
+    "table": {
+      "name": "Ad",
+      "location": "Konum",
+      "country": "Ülke",
+      "kind": "Tür",
+      "type": "Tip",
+      "active": "Aktif"
+    },
+    "savedSearches": "Kayıtlı aramalar",
+    "noSearches": "Henüz arama yok. Yukarıdan ekleyin.",
+    "scrapeNow": "Şimdi tara",
+    "scraping": "Taranıyor…",
+    "delete": "Sil",
+    "importSuccess": "✓ {{created}} şehir içe aktarıldı, {{skipped}} zaten mevcut.",
+    "scrapeSuccess": "✓ Taranan: {{scraped}}, saklanan: {{kept}}"
+  },
+  "card": {
+    "belowAreaMedian": "bölge medyanının altında",
+    "vsAreaMedian": "bölge medyanına göre",
+    "rooms": "oda",
+    "median": "medyan",
+    "viewListing": "İlanı gör",
+    "cheap": "ucuz",
+    "pricey": "pahalı"
+  },
+  "deal": {
+    "good": "İyi fırsat",
+    "fair": "Makul fiyat",
+    "overpriced": "Pahalı",
+    "unknown": "Referans yok"
+  },
+  "map": {
+    "noGeocoded": "Henüz coğrafi kodlu ilan yok.",
+    "runScrape": "Tarama başlatın — koordinatlar otomatik alınır.",
+    "geocodedOf": "{{total}} ilanın {{mapped}} tanesi coğrafi kodlandı",
+    "viewListing": "İlanı gör ↗",
+    "vsArea": "bölgeye göre"
+  },
+  "toggle": {
+    "cards": "Kartlar",
+    "table": "Tablo",
+    "map": "Harita"
+  },
+  "lang": {
+    "en": "EN",
+    "de": "DE",
+    "fr": "FR",
+    "tr": "TR"
+  },
+  "analysis": {
+    "title": "Fiyat Analizi",
+    "sub": "Dağılım, trendler, ısı haritası ve getiri hesaplayıcı.",
+    "dist": {
+      "title": "Fiyat dağılımı",
+      "sub": "İlanların €/m² aralıklarına göre dağılımı.",
+      "noData": "Henüz fiyat verisi olan ilan yok.",
+      "median": "Medyan",
+      "listings": "ilan",
+      "xLabel": "€/m²"
+    },
+    "heatmap": {
+      "title": "Bölge ısı haritası",
+      "sub": "Bölge başına medyan €/m² — renk göreli konumu gösterir. Oklar dönemlik trendi gösterir.",
+      "samples": "ilan",
+      "up": "↑ yükseliyor",
+      "down": "↓ düşüyor",
+      "stable": "→ sabit",
+      "noTrend": "—",
+      "rent": "kira",
+      "range": "aralık"
+    },
+    "history": {
+      "title": "Fiyat geçmişi",
+      "sub": "5 bölgeye kadar €/m² trendlerini karşılaştırın.",
+      "selectHint": "Karşılaştırmak için bölge seçin",
+      "noData": "En az bir bölge seçin ve birden fazla günde tarama yapın.",
+      "index": "Endeks (baz=100)",
+      "absolute": "Mutlak €/m²",
+      "mode": "Göster"
+    },
+    "yield": {
+      "title": "Getiri hesaplayıcı",
+      "sub": "Kiralık mülk alımından elde edilecek getiriyi tahmin edin.",
+      "purchasePrice": "Satın alma fiyatı (€)",
+      "area": "Yaşam alanı (m²)",
+      "monthlyRent": "Aylık kira (€)",
+      "purchaseCosts": "Satın alma maliyetleri (%)",
+      "purchaseCostsHint": "Noter, vergi, acente — genellikle %8–12",
+      "monthlyExpenses": "Aylık giderler (€)",
+      "expensesHint": "Yönetim, bakım, sigorta",
+      "mortgageRate": "Mortgage oranı (%)",
+      "ltv": "LTV (%)",
+      "grossYield": "Brüt getiri",
+      "netYield": "Net getiri",
+      "monthlyCashflow": "Aylık nakit akışı",
+      "cashOnCash": "Nakit getiri",
+      "breakEven": "Başa baş noktası",
+      "years": "yıl",
+      "perMonth": "/ ay",
+      "fillAll": "Sonuçları görmek için satın alma fiyatı ve kira girin."
+    },
+    "eyebrow": "Analiz"
+  }
+}

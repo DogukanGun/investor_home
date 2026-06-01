@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "overview": "Aperçu",
+    "browse": "Parcourir",
+    "areas": "Zones & indice",
+    "searches": "Recherches",
+    "analysis": "Analyses"
+  },
+  "sidebar": {
+    "sub": "Terminal immobilier",
+    "foot": "Analyse buy-to-let en Europe. Offres classées par €/m² vs médiane locale."
+  },
+  "dashboard": {
+    "eyebrow": "Aperçu",
+    "title": "Qu'est-ce qui vaut la peine d'acheter ?",
+    "sub": "Annonces classées par prix au m² par rapport à la médiane locale.",
+    "browseAll": "Voir toutes les offres →",
+    "kpi": {
+      "activeListings": "Annonces à vendre",
+      "acrossPortals": "sur tous les portails",
+      "goodDeals": "Bonnes affaires",
+      "belowMedian": "≥10% sous la médiane",
+      "medianPrice": "Prix médian",
+      "ofAllListings": "de toutes les annonces",
+      "bestUndervaluation": "Meilleure sous-évaluation"
+    },
+    "topDeals": "Meilleures offres",
+    "of": "sur",
+    "areas": "Zones",
+    "medianSale": "médiane vente",
+    "listings": "annonces",
+    "empty": "Aucune annonce",
+    "emptyHint": "Créez une recherche pour une ville ou un code postal, puis lancez un scrape.",
+    "setUp": "Configurer une recherche"
+  },
+  "browse": {
+    "eyebrow": "Parcourir",
+    "title": "Annonces à vendre",
+    "listings": "annonces",
+    "filter": {
+      "all": "Tout",
+      "good": "Bonne affaire",
+      "fair": "Prix juste",
+      "overpriced": "Surévalué",
+      "city": "Ville",
+      "cityPlaceholder": "toutes",
+      "country": "Pays",
+      "countryAll": "tous",
+      "portal": "Portail",
+      "portalAll": "tous",
+      "sortBy": "Trier par"
+    },
+    "sort": {
+      "bestDeal": "Meilleure affaire",
+      "ppm2Low": "€/m² (croissant)",
+      "priceLow": "Prix (croissant)",
+      "grossYield": "Rendement brut"
+    },
+    "table": {
+      "deal": "Offre",
+      "location": "Lieu",
+      "price": "Prix",
+      "area": "m²",
+      "ppm2": "€/m²",
+      "median": "Médiane",
+      "vsArea": "vs zone",
+      "portal": "Portail"
+    },
+    "noMatch": "Aucune annonce ne correspond",
+    "noMatchHint": "Essayez de réinitialiser les filtres ou lancez un scrape.",
+    "goToSearches": "Aller aux recherches"
+  },
+  "areas": {
+    "eyebrow": "Marché",
+    "title": "Zones & indice de prix",
+    "sub": "Médiane €/m² par code postal et évolution dans le temps.",
+    "medianSalePrice": "prix médian de vente",
+    "listings": "annonces",
+    "priceIndex": "Indice de prix",
+    "basePeriod": "période de base = 100",
+    "needMoreDays": "Il faut au moins deux jours de scrape. Actuellement {{count}} point(s). Re-scrapez un autre jour.",
+    "empty": "Pas encore de statistiques",
+    "emptyHint": "Lancez un scrape pour remplir les médianes par zone.",
+    "goToSearches": "Aller aux recherches"
+  },
+  "searches": {
+    "eyebrow": "Configurer",
+    "title": "Recherches",
+    "sub": "Chaque recherche sauvegardée pilote le scraping sur tous les portails.",
+    "newSearch": "Nouvelle recherche",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "ex. Centre de Paris",
+      "city": "Ville",
+      "postalCode": "Code postal",
+      "country": "Pays",
+      "kind": "Type",
+      "type": "Bien",
+      "priceMin": "Prix min €",
+      "priceMax": "Prix max €",
+      "sizeMin": "Surface min m²",
+      "sizeMax": "Surface max m²",
+      "roomsMin": "Pièces min",
+      "roomsMax": "Pièces max",
+      "sale": "Achat",
+      "rent": "Location",
+      "apartment": "Appartement",
+      "house": "Maison",
+      "addSearch": "Ajouter",
+      "saving": "Enregistrement…",
+      "importCities": "🇩🇪 Importer 50 villes",
+      "importing": "Importation…"
+    },
+    "table": {
+      "name": "Nom",
+      "location": "Lieu",
+      "country": "Pays",
+      "kind": "Type",
+      "type": "Bien",
+      "active": "Actif"
+    },
+    "savedSearches": "Recherches sauvegardées",
+    "noSearches": "Aucune recherche. Ajoutez-en une ci-dessus.",
+    "scrapeNow": "Scraper maintenant",
+    "scraping": "Scraping…",
+    "delete": "Supprimer",
+    "importSuccess": "✓ {{created}} villes importées, {{skipped}} déjà existantes.",
+    "scrapeSuccess": "✓ Scrapé : {{scraped}}, conservé : {{kept}}"
+  },
+  "card": {
+    "belowAreaMedian": "sous la médiane de zone",
+    "vsAreaMedian": "vs médiane de zone",
+    "rooms": "pièces",
+    "median": "médiane",
+    "viewListing": "Voir l'annonce",
+    "cheap": "bon marché",
+    "pricey": "cher"
+  },
+  "deal": {
+    "good": "Bonne affaire",
+    "fair": "Prix juste",
+    "overpriced": "Surévalué",
+    "unknown": "Pas de référence"
+  },
+  "map": {
+    "noGeocoded": "Aucune annonce géocodée.",
+    "runScrape": "Lancez un scrape — les coordonnées sont récupérées automatiquement.",
+    "geocodedOf": "{{mapped}} sur {{total}} annonces géocodées",
+    "viewListing": "Voir l'annonce ↗",
+    "vsArea": "vs zone"
+  },
+  "toggle": {
+    "cards": "Cartes",
+    "table": "Tableau",
+    "map": "Carte"
+  },
+  "lang": {
+    "en": "EN",
+    "de": "DE",
+    "fr": "FR",
+    "tr": "TR"
+  },
+  "analysis": {
+    "title": "Analyse des prix",
+    "sub": "Distribution, tendances, carte thermique et calculateur de rendement.",
+    "dist": {
+      "title": "Distribution des prix",
+      "sub": "Répartition des annonces par tranches de €/m².",
+      "noData": "Aucune annonce avec des données de prix.",
+      "median": "Médiane",
+      "listings": "annonces",
+      "xLabel": "€/m²"
+    },
+    "heatmap": {
+      "title": "Carte thermique des zones",
+      "sub": "Médiane €/m² par zone — couleur = position relative. Flèches = tendance.",
+      "samples": "annonces",
+      "up": "↑ en hausse",
+      "down": "↓ en baisse",
+      "stable": "→ stable",
+      "noTrend": "—",
+      "rent": "loyer",
+      "range": "fourchette"
+    },
+    "history": {
+      "title": "Historique des prix",
+      "sub": "Comparer les tendances €/m² sur jusqu'à 5 zones.",
+      "selectHint": "Sélectionner des zones à comparer",
+      "noData": "Sélectionnez au moins une zone et scrapez sur plusieurs jours.",
+      "index": "Indice (base=100)",
+      "absolute": "Absolu €/m²",
+      "mode": "Afficher en"
+    },
+    "yield": {
+      "title": "Calculateur de rendement",
+      "sub": "Estimez le rendement d'un achat locatif.",
+      "purchasePrice": "Prix d'achat (€)",
+      "area": "Surface habitable (m²)",
+      "monthlyRent": "Loyer mensuel (€)",
+      "purchaseCosts": "Frais d'acquisition (%)",
+      "purchaseCostsHint": "Notaire, taxe, agent — typiquement 8–12%",
+      "monthlyExpenses": "Charges mensuelles (€)",
+      "expensesHint": "Gestion, entretien, assurance",
+      "mortgageRate": "Taux d'emprunt (%)",
+      "ltv": "Quotité de financement (%)",
+      "grossYield": "Rendement brut",
+      "netYield": "Rendement net",
+      "monthlyCashflow": "Cashflow mensuel",
+      "cashOnCash": "Rendement cash/cash",
+      "breakEven": "Seuil de rentabilité",
+      "years": "ans",
+      "perMonth": "/ mois",
+      "fillAll": "Renseignez le prix et le loyer pour voir les résultats."
+    },
+    "eyebrow": "Analyses"
+  }
+}

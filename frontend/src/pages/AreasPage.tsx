@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { api } from "../api/client";
 import { ppm2 } from "../lib/format";
 import EmptyState from "../components/EmptyState";
 
 export default function AreasPage() {
+  const { t } = useTranslation();
   const { data: areas = [] } = useQuery({ queryKey: ["areas"], queryFn: api.listAreas });
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -20,14 +22,14 @@ export default function AreasPage() {
     <>
       <div className="page-head">
         <div>
-          <div className="eyebrow">Market</div>
-          <h1 className="page-title">Areas &amp; price index</h1>
-          <div className="page-sub">Median €/m² per postal area, and how it trends over time.</div>
+          <div className="eyebrow">{t("areas.eyebrow")}</div>
+          <h1 className="page-title">{t("areas.title")}</h1>
+          <div className="page-sub">{t("areas.sub")}</div>
         </div>
       </div>
 
       {areas.length === 0 ? (
-        <EmptyState title="No area stats yet" hint="Scrape a search to populate per-area medians." cta={{ to: "/searches", label: "Go to searches" }} />
+        <EmptyState title={t("areas.empty")} hint={t("areas.emptyHint")} cta={{ to: "/searches", label: t("areas.goToSearches") }} />
       ) : (
         <>
           <div className="stat-grid">
@@ -40,8 +42,8 @@ export default function AreasPage() {
                 <div className="stat-key">{a.area_key}</div>
                 <div className="stat-big mono">{ppm2(a.sale_median_ppm2)}</div>
                 <div className="stat-sub">
-                  <span>median sale price</span>
-                  <span className="mono">{a.sale_samples} listings</span>
+                  <span>{t("areas.medianSalePrice")}</span>
+                  <span className="mono">{a.sale_samples} {t("areas.listings")}</span>
                 </div>
               </div>
             ))}
@@ -50,13 +52,10 @@ export default function AreasPage() {
           {area && (
             <div className="panel" style={{ marginTop: 22 }}>
               <div className="section-title" style={{ margin: "0 0 14px" }}>
-                Price index — {area} <span className="count">base period = 100</span>
+                {t("areas.priceIndex")} — {area} <span className="count">{t("areas.basePeriod")}</span>
               </div>
               {index.length < 2 ? (
-                <p className="muted">
-                  Need at least two scrape days to plot a trend. Currently {index.length} data point(s).
-                  Re-scrape on another day and the curve appears here.
-                </p>
+                <p className="muted">{t("areas.needMoreDays", { count: index.length })}</p>
               ) : (
                 <ResponsiveContainer width="100%" height={300}>
                   <AreaChart data={index} margin={{ top: 8, right: 16, bottom: 4, left: -8 }}>
