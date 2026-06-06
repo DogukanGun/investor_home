@@ -48,7 +48,7 @@ object RetrofitClientManager {
             .create()
 
         retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8000/")
+            .baseUrl("https://investor.dogukangundogan.com/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
