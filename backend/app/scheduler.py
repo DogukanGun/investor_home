@@ -12,6 +12,7 @@ from app.db import engine
 from sqlmodel import Session
 
 from app.services.ingest import run_all_active
+from app.services.health_check import run_listing_health_check
 
 logger = logging.getLogger(__name__)
 _scheduler: BackgroundScheduler | None = None
@@ -24,6 +25,13 @@ def _job() -> None:
     logger.info("Scheduled scrape done: %s", result)
 
 
+def _health_check_job() -> None:
+    logger.info("Listing health check starting")
+    with Session(engine) as session:
+        result = run_listing_health_check(session)
+    logger.info("Listing health check done: checked=%d deleted=%d", result["checked"], result["deleted"])
+
+
 def start_scheduler() -> None:
     global _scheduler
     if not settings.enable_scheduler or _scheduler:
@@ -33,6 +41,12 @@ def start_scheduler() -> None:
         _job,
         IntervalTrigger(hours=settings.scrape_interval_hours, start_date=datetime.now()),
         id="daily_scrape",
+        replace_existing=True,
+    )
+    _scheduler.add_job(
+        _health_check_job,
+        IntervalTrigger(hours=24, start_date=datetime.now()),
+        id="listing_health_check",
         replace_existing=True,
     )
     _scheduler.start()
