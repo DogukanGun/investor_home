@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../contexts/AuthContext";
 
 type IconProps = { d: string };
 const Icon = ({ d }: IconProps) => (
@@ -17,6 +18,13 @@ const LANGS = [
 
 export default function Sidebar() {
   const { t, i18n } = useTranslation();
+  const { logout, user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/", { replace: true });
+  };
 
   const NAV = [
     { to: "/overview", label: t("nav.overview"), d: "M3 13h8V3H3zM13 21h8V3h-8zM3 21h8v-6H3z" },
@@ -64,7 +72,18 @@ export default function Sidebar() {
         ))}
       </div>
 
-      <div className="sidebar-foot">{t("sidebar.foot")}</div>
+      <div className="sidebar-foot">
+        <div className="mb-3 pb-3 border-t border-gray-300">
+          <p className="text-xs text-gray-600 mb-2">{user?.email}</p>
+          <button
+            onClick={handleLogout}
+            className="w-full text-left text-xs text-red-600 hover:text-red-700 font-medium"
+          >
+            Logout
+          </button>
+        </div>
+        {t("sidebar.foot")}
+      </div>
     </aside>
   );
 }

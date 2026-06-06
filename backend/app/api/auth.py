@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, timezone
 import secrets
 import hashlib
 
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, Header
 from sqlmodel import Session, select
 
 from app.config import settings
@@ -63,7 +63,13 @@ def create_access_token(email: str) -> str:
 
 
 @router.post("/register", response_model=TokenResponse)
-def register(request: RegisterRequest, session: Session = Depends(get_session)):
+def register(
+    request: RegisterRequest,
+    session: Session = Depends(get_session),
+    x_mobile_client: str | None = Header(default=None),
+):
+    if x_mobile_client != "investorhome-android":
+        raise HTTPException(status_code=403, detail="Registration is only available via the mobile app")
 
     existing = session.exec(select(User).where(User.email == request.email)).first()
     if existing:

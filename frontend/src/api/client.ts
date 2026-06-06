@@ -8,8 +8,14 @@ import type {
 } from "./types";
 
 async function req<T>(url: string, init?: RequestInit): Promise<T> {
+  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  const headers: HeadersInit = { "Content-Type": "application/json" };
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
   const res = await fetch(url, {
-    headers: { "Content-Type": "application/json" },
+    headers,
     ...init,
   });
   if (!res.ok) {
@@ -22,6 +28,11 @@ async function req<T>(url: string, init?: RequestInit): Promise<T> {
 
 export const api = {
   // Auth
+  login: (email: string, password: string) =>
+    req<{ access_token: string; token_type: string; email: string; name: string }>("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+    }),
   forgotPassword: (email: string) =>
     req<{ message: string }>("/api/auth/forgot-password", { method: "POST", body: JSON.stringify({ email }) }),
   resetPassword: (token: string, newPassword: string) =>
