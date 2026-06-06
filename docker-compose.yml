@@ -1,24 +1,39 @@
 services:
   backend:
     build: ./backend
+    container_name: investorhome-backend
     environment:
+      - INVESTORHOME_DATABASE_URL=sqlite:////app/data/investorhome.db
       - INVESTORHOME_ENABLE_SCHEDULER=true
-      # ImmoScout24 / DataDome. Leave proxy empty to use the host's connection.
       - INVESTORHOME_IS24_ENGINE=camoufox
-      # - INVESTORHOME_IS24_PROXY=http://user:pass@host:port
     volumes:
-      - ih-data:/app/data
+      - ./data:/app/data
     ports:
       - "8000:8000"
     restart: unless-stopped
+    networks:
+      - investorhome-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 
   frontend:
     build: ./frontend
+    container_name: investorhome-frontend
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
+    environment:
+      - VITE_API_URL=http://localhost:8000
     ports:
       - "8080:80"
     restart: unless-stopped
+    networks:
+      - investorhome-network
 
-volumes:
-  ih-data:
+networks:
+  investorhome-network:
+    driver: bridge
