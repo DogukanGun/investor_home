@@ -20,20 +20,6 @@ services:
       retries: 3
       start_period: 10s
 
-  frontend:
-    build: ./frontend
-    container_name: investorhome-frontend
-    depends_on:
-      backend:
-        condition: service_healthy
-    environment:
-      - VITE_API_URL=http://localhost:8000
-    ports:
-      - "8080:80"
-    restart: unless-stopped
-    networks:
-      - investorhome-network
-
 networks:
   investorhome-network:
     driver: bridge
