@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { api } from "../api/client";
 import { useTranslation } from "react-i18next";
+import "./Auth.css";
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -31,26 +32,45 @@ export function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900">InvestorHome</h1>
-          <h2 className="mt-6 text-2xl font-bold text-gray-900">{t("auth.signIn")}</h2>
-          <p className="mt-2 text-sm text-gray-600">{t("auth.accessDashboard")}</p>
-        </div>
+    <div className="auth-layout">
+      {/* Left Panel: Branding */}
+      <div className="auth-left">
+        <div className="auth-left-content">
+          <div className="auth-brand">
+            <div className="auth-brand-mark">IH</div>
+            <div className="auth-brand-name">InvestorHome</div>
+          </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          {error && (
-            <div className="rounded-md bg-red-50 p-4">
-              <p className="text-sm text-red-800">{error}</p>
+          <h2 className="auth-headline">Discover undervalued properties across Europe.</h2>
+
+          <div className="auth-stats">
+            <div className="auth-stat">
+              <div className="auth-stat-dot accent"></div>
+              <span>12,000+ active listings</span>
             </div>
-          )}
+            <div className="auth-stat">
+              <div className="auth-stat-dot good"></div>
+              <span>6 countries covered</span>
+            </div>
+            <div className="auth-stat">
+              <div className="auth-stat-dot fair"></div>
+              <span>Updated every 6 hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                {t("auth.email")}
-              </label>
+      {/* Right Panel: Form */}
+      <div className="auth-right">
+        <div className="auth-card">
+          <h1 className="auth-title">{t("auth.signIn")}</h1>
+          <p className="auth-subtitle">{t("auth.accessDashboard")}</p>
+
+          {error && <div className="auth-error">{error}</div>}
+
+          <form onSubmit={handleSubmit}>
+            <div className="auth-field">
+              <label htmlFor="email" className="auth-label">{t("auth.email")}</label>
               <input
                 id="email"
                 type="email"
@@ -58,14 +78,13 @@ export function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="auth-input"
+                disabled={loading}
               />
             </div>
 
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                {t("auth.password")}
-              </label>
+            <div className="auth-field">
+              <label htmlFor="password" className="auth-label">{t("auth.password")}</label>
               <input
                 id="password"
                 type="password"
@@ -73,32 +92,26 @@ export function LoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="auth-input"
+                disabled={loading}
               />
             </div>
-          </div>
 
-          <div className="flex items-center justify-between">
-            <Link to="/forgot-password" className="text-sm text-blue-600 hover:text-blue-500">
-              {t("auth.forgotPassword")}
-            </Link>
-          </div>
+            <div style={{ marginBottom: "24px" }}>
+              <Link to="/forgot-password" className="auth-link">{t("auth.forgotPassword")}</Link>
+            </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
-          >
-            {loading ? "Signing in..." : t("auth.signIn")}
-          </button>
-        </form>
+            <button type="submit" disabled={loading} className="btn primary auth-submit">
+              {loading && <span className="auth-spinner"></span>}
+              {loading ? "Signing in..." : t("auth.signIn")}
+            </button>
+          </form>
 
-        <p className="text-center text-sm text-gray-600">
-          {t("auth.dontHaveAccount")}{" "}
-          <span className="text-gray-500">
+          <div className="auth-footer-note">
+            {t("auth.dontHaveAccount")} <br />
             {t("auth.downloadAppToRegister") || "Download the mobile app to create an account"}
-          </span>
-        </p>
+          </div>
+        </div>
       </div>
     </div>
   );

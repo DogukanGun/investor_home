@@ -1,0 +1,304 @@
+/* =====================================================
+   InvestorHome — Premium Dark Fintech Auth Layout
+   Two-column split: branded left panel + form right
+   ===================================================== */
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ────────────────────────── LEFT PANEL ────────────────────────── */
+
+.auth-left {
+  background: linear-gradient(135deg, #080b10 0%, #0f1420 50%, #1a1530 100%);
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background blobs */
+.auth-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 400px at 20% 20%, rgba(91, 140, 255, 0.12) 0%, transparent 40%),
+    radial-gradient(600px 500px at 80% 80%, rgba(54, 211, 153, 0.08) 0%, transparent 50%);
+  animation: blob-float 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(20px, -30px); }
+  66% { transform: translate(-20px, 20px); }
+}
+
+.auth-left-content {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.auth-brand-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(150deg, var(--accent), #7c5bff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  color: #fff;
+  box-shadow: 0 8px 24px -8px var(--accent);
+}
+
+.auth-brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.auth-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 30px;
+  max-width: 380px;
+}
+
+.auth-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.auth-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.auth-stat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.auth-stat-dot.good { background: var(--good); }
+.auth-stat-dot.accent { background: var(--accent); }
+.auth-stat-dot.fair { background: var(--fair); }
+
+/* ────────────────────────── RIGHT PANEL ────────────────────────── */
+
+.auth-right {
+  background: var(--bg-2);
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 8px 0;
+}
+
+.auth-subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 32px 0;
+  line-height: 1.5;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.auth-label {
+  font-size: 12px;
+  color: var(--faint);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.auth-input {
+  width: 100%;
+  /* Uses global input styles from styles.css */
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.auth-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+.auth-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.auth-footer-note {
+  color: var(--faint);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.auth-error {
+  background: var(--bad-dim);
+  border: 1px solid rgba(251, 113, 133, 0.3);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  color: var(--bad);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.auth-success {
+  background: var(--good-dim);
+  border: 1px solid rgba(54, 211, 153, 0.3);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  color: var(--good);
+  text-align: center;
+}
+
+.auth-success-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.auth-success-text {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ────────────────────────── LOADING SPINNER ────────────────────────── */
+
+.auth-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(91, 140, 255, 0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+  vertical-align: -2px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ────────────────────────── RESPONSIVE ────────────────────────── */
+
+@media (max-width: 1024px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-left {
+    padding: 40px;
+    min-height: 300px;
+  }
+
+  .auth-headline {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .auth-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .auth-stat {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .auth-right {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .auth-card {
+    padding: 24px;
+  }
+
+  .auth-title {
+    font-size: 24px;
+  }
+
+  .auth-headline {
+    font-size: 24px;
+  }
+
+  .auth-left {
+    padding: 30px;
+  }
+
+  .auth-brand-mark {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}

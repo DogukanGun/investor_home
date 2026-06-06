@@ -1,34 +1,43 @@
+/* ======================================================
+   InvestorHome Landing Page — Premium Fintech Design
+   Dark theme with animated gradients and glow effects
+   ====================================================== */
+
 .landing-page {
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #08080f 0%,
-    #0f0f1f 50%,
-    #1a1a2e 100%
-  );
-  color: #eef2f8;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
 }
+
+/* ────────────────────────── NAVIGATION ────────────────────────── */
 
 .landing-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(11, 15, 22, 0.8);
+  border-bottom: 1px solid var(--line);
+  background: rgba(8, 11, 16, 0.8);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 100;
 }
 
 .landing-nav h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  color: #5b8cff;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  font-family: var(--font-display);
 }
 
 .landing-nav a {
-  color: #5b8cff;
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
+  font-size: 14px;
   transition: opacity 0.2s;
 }
 
@@ -36,67 +45,94 @@
   opacity: 0.8;
 }
 
+/* ────────────────────────── HERO SECTION ────────────────────────── */
+
 .landing-hero {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 80px 40px;
+  position: relative;
+  padding: 100px 40px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.landing-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 500px at 50% 30%, rgba(91, 140, 255, 0.15) 0%, transparent 40%),
+    radial-gradient(700px 400px at 50% 60%, rgba(54, 211, 153, 0.1) 0%, transparent 50%);
+  animation: hero-glow 6s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: 100%;
+}
+
+@keyframes hero-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 .landing-hero h2 {
-  font-size: 48px;
+  position: relative;
+  font-size: 52px;
   font-weight: 700;
-  margin: 0 0 30px 0;
+  margin: 0 0 24px 0;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.1;
+  font-family: var(--font-display);
 }
 
 .landing-hero p {
+  position: relative;
   font-size: 18px;
-  color: #97a3b6;
-  margin: 0 0 40px 0;
+  color: var(--muted);
+  margin: 0 0 48px 0;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .landing-cta {
+  position: relative;
   display: flex;
-  gap: 16px;
+  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 12px 32px;
+  padding: 14px 40px;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: var(--r-lg);
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
   text-decoration: none;
   display: inline-block;
+  font-family: var(--font-body);
 }
 
 .btn.primary {
-  background: linear-gradient(150deg, #5b8cff, #7c5bff);
+  background: linear-gradient(150deg, var(--accent), #7c5bff);
   color: #fff;
-  box-shadow: 0 8px 20px -10px #5b8cff;
+  box-shadow: 0 12px 32px -8px var(--accent);
 }
 
 .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -10px #5b8cff;
+  box-shadow: 0 16px 40px -8px var(--accent);
 }
 
 .btn-outline {
-  padding: 12px 32px;
-  border: 2px solid #5b8cff;
-  color: #5b8cff;
+  padding: 14px 40px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
   background: transparent;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: var(--r-lg);
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -109,94 +145,138 @@
   transform: translateY(-2px);
 }
 
+/* ────────────────────────── FEATURES SECTION ────────────────────── */
+
 .landing-features {
-  padding: 80px 40px;
-  background: rgba(17, 22, 31, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 100px 40px;
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
 }
 
 .landing-features h3 {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 700;
   text-align: center;
-  margin: 0 0 60px 0;
+  margin: 0 0 64px 0;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .feature-card {
-  background: linear-gradient(160deg, #161c27, #0b0f16);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 32px 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--accent);
+  border-radius: var(--r-lg);
+  padding: 40px 32px;
   text-align: center;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px 400px at 50% 50%, rgba(91, 140, 255, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
 }
 
 .feature-card:hover {
-  border-color: rgba(91, 140, 255, 0.3);
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(91, 140, 255, 0.1);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
 }
 
 .feature-icon {
-  font-size: 40px;
-  margin-bottom: 16px;
+  font-size: 44px;
+  margin-bottom: 20px;
+  display: inline-block;
 }
 
 .feature-card h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
+  color: var(--text);
 }
 
 .feature-card p {
-  font-size: 14px;
-  color: #97a3b6;
+  font-size: 15px;
+  color: var(--muted);
   margin: 0;
   line-height: 1.6;
 }
 
+/* ────────────────────────── HOW IT WORKS ────────────────────────── */
+
 .landing-how {
-  padding: 80px 40px;
-  max-width: 1200px;
+  padding: 100px 40px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .landing-how h3 {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 700;
   text-align: center;
-  margin: 0 0 60px 0;
+  margin: 0 0 64px 0;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
+  position: relative;
+}
+
+.steps-grid::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 60px;
+  right: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--line), var(--accent), var(--line));
+  z-index: 0;
+  opacity: 0.3;
 }
 
 .step {
+  position: relative;
+  z-index: 1;
   text-align: center;
 }
 
 .step-number {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: linear-gradient(150deg, #5b8cff, #7c5bff);
+  background: linear-gradient(150deg, var(--accent), #7c5bff);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
-  margin: 0 auto 24px;
+  margin: 0 auto 32px;
   color: #fff;
+  box-shadow: 0 12px 32px -8px var(--accent);
 }
 
 .step h4 {
@@ -206,63 +286,119 @@
 }
 
 .step p {
-  font-size: 14px;
-  color: #97a3b6;
+  font-size: 15px;
+  color: var(--muted);
   margin: 0;
   line-height: 1.6;
 }
 
+/* ────────────────────────── DOWNLOAD CTA ────────────────────────── */
+
 .landing-download {
-  background: linear-gradient(150deg, #5b8cff, #7c5bff);
-  padding: 80px 40px;
+  background: linear-gradient(150deg, var(--accent), #7c5bff);
+  padding: 100px 40px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-download::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 500px at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(600px 400px at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .download-content {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .landing-download h3 {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 700;
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
   color: #fff;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 .landing-download p {
   font-size: 16px;
   margin: 0 0 40px 0;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.6;
 }
 
 .landing-download .btn {
   background: #fff;
-  color: #5b8cff;
+  color: var(--accent);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .landing-download .btn:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .small-text {
-  font-size: 12px;
-  margin-top: 24px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
 }
+
+/* ────────────────────────── FOOTER ────────────────────────── */
 
 .landing-footer {
   background: rgba(8, 11, 16, 0.8);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 40px;
+  border-top: 1px solid var(--line);
+  padding: 48px 40px;
   text-align: center;
-  color: #5e6b7e;
+  color: var(--faint);
   font-size: 14px;
 }
 
 .landing-footer p {
   margin: 0;
+}
+
+/* ────────────────────────── RESPONSIVE ────────────────────────── */
+
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .steps-grid::before {
+    display: none;
+  }
+
+  .landing-hero {
+    padding: 60px 30px;
+  }
+
+  .landing-hero h2 {
+    font-size: 40px;
+  }
+
+  .landing-features,
+  .landing-how,
+  .landing-download {
+    padding: 60px 30px;
+  }
+
+  .landing-features h3,
+  .landing-how h3,
+  .landing-download h3 {
+    font-size: 32px;
+    margin-bottom: 48px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -285,17 +421,30 @@
 
   .landing-hero p {
     font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
+  }
+
+  .landing-cta {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .btn {
+    width: 100%;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+  }
+
+  .feature-card {
+    padding: 24px 20px;
   }
 
   .steps-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 32px;
   }
 
   .landing-features,
@@ -317,7 +466,7 @@
     font-size: 28px;
   }
 
-  .cta-flex {
-    flex-direction: column;
+  .step h4 {
+    font-size: 18px;
   }
 }

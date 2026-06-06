@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { api } from '../api/client';
+import './Auth.css';
 
 export function ResetPasswordPage() {
   const { t } = useTranslation();
@@ -17,16 +18,42 @@ export function ResetPasswordPage() {
 
   if (!token) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-4">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">{t('auth.invalidResetLink')}</h2>
-          <p className="text-slate-600 mb-6">{t('auth.invalidResetLink')}</p>
-          <button
-            onClick={() => navigate('/login')}
-            className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition"
-          >
-            {t('auth.backToLogin')}
-          </button>
+      <div className="auth-layout">
+        <div className="auth-left">
+          <div className="auth-left-content">
+            <div className="auth-brand">
+              <div className="auth-brand-mark">IH</div>
+              <div className="auth-brand-name">InvestorHome</div>
+            </div>
+            <h2 className="auth-headline">Discover undervalued properties across Europe.</h2>
+            <div className="auth-stats">
+              <div className="auth-stat">
+                <div className="auth-stat-dot accent"></div>
+                <span>12,000+ active listings</span>
+              </div>
+              <div className="auth-stat">
+                <div className="auth-stat-dot good"></div>
+                <span>6 countries covered</span>
+              </div>
+              <div className="auth-stat">
+                <div className="auth-stat-dot fair"></div>
+                <span>Updated every 6 hours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="auth-right">
+          <div className="auth-card">
+            <h1 className="auth-title">{t('auth.invalidResetLink')}</h1>
+            <p className="auth-subtitle">{t('auth.invalidResetLink')}</p>
+            <button
+              onClick={() => navigate('/login')}
+              className="btn primary"
+              style={{ width: '100%', marginTop: '24px' }}
+            >
+              {t('auth.backToLogin')}
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -60,79 +87,124 @@ export function ResetPasswordPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-4">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
-          <div className="mb-4 text-4xl">✓</div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">{t('auth.passwordReset')}</h2>
-          <p className="text-slate-600 mb-6">{t('auth.passwordUpdated')}</p>
-          <button
-            onClick={() => navigate('/login')}
-            className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition"
-          >
-            {t('auth.goToLogin')}
-          </button>
+      <div className="auth-layout">
+        <div className="auth-left">
+          <div className="auth-left-content">
+            <div className="auth-brand">
+              <div className="auth-brand-mark">IH</div>
+              <div className="auth-brand-name">InvestorHome</div>
+            </div>
+            <h2 className="auth-headline">Discover undervalued properties across Europe.</h2>
+            <div className="auth-stats">
+              <div className="auth-stat">
+                <div className="auth-stat-dot accent"></div>
+                <span>12,000+ active listings</span>
+              </div>
+              <div className="auth-stat">
+                <div className="auth-stat-dot good"></div>
+                <span>6 countries covered</span>
+              </div>
+              <div className="auth-stat">
+                <div className="auth-stat-dot fair"></div>
+                <span>Updated every 6 hours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="auth-right">
+          <div className="auth-card">
+            <div className="auth-success">
+              <div style={{ fontSize: '36px', marginBottom: '16px' }}>✓</div>
+              <div className="auth-success-title">{t('auth.passwordReset')}</div>
+              <p className="auth-success-text">{t('auth.passwordUpdated')}</p>
+              <button
+                onClick={() => navigate('/login')}
+                className="btn primary"
+                style={{ width: '100%', marginTop: '24px' }}
+              >
+                {t('auth.goToLogin')}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-4">
-      <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">{t('auth.resetPassword')}</h1>
-        <p className="text-slate-600 mb-6">{t('auth.enterEmailReset')}</p>
-
-        {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4 text-sm">
-            {error}
+    <div className="auth-layout">
+      <div className="auth-left">
+        <div className="auth-left-content">
+          <div className="auth-brand">
+            <div className="auth-brand-mark">IH</div>
+            <div className="auth-brand-name">InvestorHome</div>
           </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">{t('auth.newPassword')}</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              minLength={6}
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-              placeholder={t('auth.passwordTooShort')}
-            />
+          <h2 className="auth-headline">Discover undervalued properties across Europe.</h2>
+          <div className="auth-stats">
+            <div className="auth-stat">
+              <div className="auth-stat-dot accent"></div>
+              <span>12,000+ active listings</span>
+            </div>
+            <div className="auth-stat">
+              <div className="auth-stat-dot good"></div>
+              <span>6 countries covered</span>
+            </div>
+            <div className="auth-stat">
+              <div className="auth-stat-dot fair"></div>
+              <span>Updated every 6 hours</span>
+            </div>
           </div>
+        </div>
+      </div>
+      <div className="auth-right">
+        <div className="auth-card">
+          <h1 className="auth-title">{t('auth.resetPassword')}</h1>
+          <p className="auth-subtitle">{t('auth.enterNewPassword')}</p>
 
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">{t('auth.confirmPassword')}</label>
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              minLength={6}
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-              placeholder={t('auth.confirmPassword')}
-            />
-          </div>
+          {error && <div className="auth-error">{error}</div>}
+
+          <form onSubmit={handleSubmit}>
+            <div className="auth-field">
+              <label htmlFor="password" className="auth-label">{t('auth.newPassword')}</label>
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength={6}
+                className="auth-input"
+                disabled={loading}
+              />
+            </div>
+
+            <div className="auth-field">
+              <label htmlFor="confirmPassword" className="auth-label">{t('auth.confirmPassword')}</label>
+              <input
+                id="confirmPassword"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                minLength={6}
+                className="auth-input"
+                disabled={loading}
+              />
+            </div>
+
+            <button type="submit" disabled={loading} className="btn primary auth-submit">
+              {loading && <span className="auth-spinner"></span>}
+              {loading ? t('auth.resetting') : t('auth.resetPassword')}
+            </button>
+          </form>
 
           <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={() => navigate('/login')}
+            className="auth-link"
+            style={{ display: 'block', marginTop: '20px', textAlign: 'center', width: '100%' }}
           >
-            {loading ? t('auth.resetting') : t('auth.resetPassword')}
+            {t('auth.backToLogin')}
           </button>
-        </form>
-
-        <div className="mt-6 text-center">
-          <p className="text-slate-600">
-            <button
-              onClick={() => navigate('/login')}
-              className="text-blue-600 font-medium hover:underline"
-            >
-              {t('auth.backToLogin')}
-            </button>
-          </p>
         </div>
       </div>
     </div>
