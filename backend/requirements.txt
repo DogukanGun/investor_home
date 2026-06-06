@@ -10,3 +10,6 @@ playwright>=1.48
 camoufox[geoip]>=0.4
 pydantic-settings>=2.5
 pytest>=8.3
+passlib[bcrypt]>=1.7
+python-jose[cryptography]>=3.3
+fastapi-mail>=1.4

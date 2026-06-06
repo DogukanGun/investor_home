@@ -1,0 +1,63 @@
+#!/bin/bash
+
+#
+# Copyright 2015 the original author or authors.
+#
+
+set -e
+
+dirname_0=`dirname "$0"`
+execdir_0=`cd "$dirname_0" > /dev/null && pwd`
+
+APP_HOME=`cd "$execdir_0" && pwd -P` || exit
+
+# Use the maximum available, or set MAX_FD != maximum.
+MAX_FD="maximum"
+
+warn() {
+    echo "$*" >&2
+}
+
+die() {
+    echo
+    echo "$*"
+    echo
+    exit 1
+} >&2
+
+# OS specific support (must be 'true' or 'false').
+cygwin=false
+msys=false
+darwin=false
+case "`uname`" in
+  CYGWIN* )
+    cygwin=true
+    ;;
+  Darwin* )
+    darwin=true
+    ;;
+  MSYS* | MINGW* )
+    msys=true
+    ;;
+esac
+
+CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+
+JAVACMD="java"
+if [ -n "$JAVA_HOME" ] ; then
+    if [ -x "$JAVA_HOME/bin/java" ] ; then
+        JAVACMD="$JAVA_HOME/bin/java"
+    fi
+fi
+
+if ! command -v "$JAVACMD" &> /dev/null ; then
+    die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH."
+fi
+
+if [ "$cygwin" = "true" -o "$msys" = "true" ] ; then
+    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
+    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
+    JAVACMD=`cygpath --unix "$JAVACMD"`
+fi
+
+exec "$JAVACMD" -Xmx64m -Xms64m -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"

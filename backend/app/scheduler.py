@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import logging
 
+from datetime import datetime
+
 from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.triggers.cron import CronTrigger
+from apscheduler.triggers.interval import IntervalTrigger
 
 from app.config import settings
 from app.db import engine
@@ -29,12 +31,12 @@ def start_scheduler() -> None:
     _scheduler = BackgroundScheduler(timezone="Europe/Berlin")
     _scheduler.add_job(
         _job,
-        CronTrigger(hour=settings.scrape_cron_hour, minute=0),
+        IntervalTrigger(hours=settings.scrape_interval_hours, start_date=datetime.now()),
         id="daily_scrape",
         replace_existing=True,
     )
     _scheduler.start()
-    logger.info("Scheduler started (daily at %02d:00 Europe/Berlin)", settings.scrape_cron_hour)
+    logger.info("Scheduler started (every %d hours)", settings.scrape_interval_hours)
 
 
 def shutdown_scheduler() -> None:

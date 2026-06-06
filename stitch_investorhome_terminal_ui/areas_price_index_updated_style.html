@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Areas &amp; Price Index | InvestorHome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "on-primary-fixed": "#001a42",
+                      "on-surface-variant": "#c2c6d6",
+                      "on-error": "#690005",
+                      "surface-tint": "#adc6ff",
+                      "surface-container-low": "#191b23",
+                      "secondary": "#4edea3",
+                      "secondary-fixed": "#6ffbbe",
+                      "inverse-primary": "#005ac2",
+                      "on-primary": "#002e6a",
+                      "on-surface": "#e1e2ec",
+                      "on-secondary": "#003824",
+                      "surface-dim": "#10131a",
+                      "inverse-on-surface": "#2e3038",
+                      "surface-container-high": "#272a31",
+                      "primary": "#adc6ff",
+                      "on-secondary-fixed-variant": "#005236",
+                      "tertiary-container": "#ca8100",
+                      "surface": "#10131a",
+                      "secondary-fixed-dim": "#4edea3",
+                      "surface-variant": "#32353c",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-primary-container": "#00285d",
+                      "outline-variant": "#424754",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-primary-fixed-variant": "#004395",
+                      "on-background": "#e1e2ec",
+                      "on-secondary-fixed": "#002113",
+                      "surface-container-highest": "#32353c",
+                      "primary-fixed": "#d8e2ff",
+                      "on-tertiary-fixed": "#2a1700",
+                      "on-tertiary": "#472a00",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#00311f",
+                      "background": "#10131a",
+                      "tertiary-fixed": "#ffddb8",
+                      "error-container": "#93000a",
+                      "tertiary": "#ffb95f",
+                      "primary-container": "#4d8eff",
+                      "surface-bright": "#363941",
+                      "inverse-surface": "#e1e2ec",
+                      "outline": "#8c909f",
+                      "secondary-container": "#00a572",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#3e2400",
+                      "surface-container": "#1d2027",
+                      "surface-container-lowest": "#0b0e15"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "margin": "24px",
+                      "sm": "8px",
+                      "gutter": "20px",
+                      "base": "4px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "data-md": ["IBM Plex Mono"],
+                      "display-lg": ["Bricolage Grotesque"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "data-sm": ["IBM Plex Mono"],
+                      "label-caps": ["Hanken Grotesk"],
+                      "data-lg": ["IBM Plex Mono"],
+                      "headline-md": ["Bricolage Grotesque"],
+                      "body-md": ["Hanken Grotesk"],
+                      "body-sm": ["Hanken Grotesk"],
+                      "headline-lg": ["Bricolage Grotesque"]
+              },
+              "fontSize": {
+                      "data-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "data-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .chart-path-sale {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 1.5s ease-out forwards;
+        }
+        .chart-path-rent {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 1.5s ease-out 0.2s forwards;
+        }
+        @keyframes drawLine {
+            to { stroke-dashoffset: 0; }
+        }
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
+        .accordion-content.expanded {
+            grid-template-rows: 1fr;
+        }
+        .accordion-inner {
+            overflow: hidden;
+        }
+        .chevron {
+            transition: transform 0.3s ease;
+        }
+        .expanded .chevron {
+            transform: rotate(180deg);
+        }
+        
+        /* Subtle glow for expanded state */
+        .expanded-card {
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            border-color: #424754;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-background dark:bg-background border-b border-surface-container-highest md:border-none flex justify-between items-center px-margin py-sm transition-colors duration-200">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary">monitoring</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary tracking-tight">InvestorHome</h1>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex gap-md items-center">
+<a class="text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase transition-colors px-sm py-xs rounded-full" href="#">Overview</a>
+<a class="text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase transition-colors px-sm py-xs rounded-full" href="#">Browse</a>
+<a class="text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase transition-colors px-sm py-xs rounded-full" href="#">Map</a>
+<a class="text-primary bg-primary-container text-on-primary-container rounded-full px-md py-xs font-label-caps text-label-caps uppercase flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[16px]">location_city</span> Areas
+            </a>
+<a class="text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase transition-colors px-sm py-xs rounded-full" href="#">Searches</a>
+</nav>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200 p-xs rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow p-margin md:max-w-7xl md:mx-auto w-full pb-32 md:pb-margin">
+<header class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-sm border-b border-surface-container-high pb-sm">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Market Areas</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Real-time price indices and localized medians.</p>
+</div>
+<div class="flex gap-sm font-data-sm text-data-sm">
+<div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-full bg-primary inline-block"></span> Sale (€/m²)</div>
+<div class="flex items-center gap-xs"><span class="w-3 h-3 rounded-full bg-secondary inline-block"></span> Rent (€/m²)</div>
+</div>
+</header>
+<!-- Data List / Accordion -->
+<div class="flex flex-col gap-sm">
+<!-- Item 1 (Default Expanded) -->
+<div class="area-card bg-surface-container rounded-2xl border border-surface-container-highest overflow-hidden transition-all duration-300 expanded-card" data-expanded="true">
+<!-- Header / Toggle -->
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-variant transition-colors text-left" onclick="toggleAccordion(this)">
+<div class="flex items-center gap-md w-1/3">
+<span class="material-symbols-outlined text-on-surface-variant">location_city</span>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">10115, Berlin 🇩🇪</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-1">Mitte District</div>
+</div>
+</div>
+<div class="flex items-center gap-lg w-1/2 justify-end pr-md">
+<div class="text-right">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Sale Median</div>
+<div class="font-data-lg text-data-lg text-primary">€8,450<span class="text-on-surface-variant font-data-sm text-data-sm">/m²</span></div>
+</div>
+<div class="text-right">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Rent Median</div>
+<div class="font-data-lg text-data-lg text-secondary">€22.50<span class="text-on-surface-variant font-data-sm text-data-sm">/m²</span></div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant chevron">expand_more</span>
+</button>
+<!-- Expandable Content (Chart) -->
+<div class="accordion-content expanded">
+<div class="accordion-inner bg-surface-container-low p-md border-t border-surface-container-high">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase">12-Month Price Index Trend</h3>
+<span class="font-data-sm text-data-sm text-on-surface-variant">Updated: Today</span>
+</div>
+<!-- Mock Chart Area -->
+<div class="relative h-48 w-full">
+<!-- Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-10 pointer-events-none">
+<div class="border-t border-on-surface-variant w-full h-0"></div>
+<div class="border-t border-on-surface-variant w-full h-0"></div>
+<div class="border-t border-on-surface-variant w-full h-0"></div>
+<div class="border-t border-on-surface-variant w-full h-0"></div>
+</div>
+<!-- SVG Chart -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 800 200">
+<!-- Sale Line (Primary) -->
+<path class="chart-path-sale" d="M 0 180 Q 100 170, 200 150 T 400 120 T 600 80 T 800 50" fill="none" stroke="#adc6ff" stroke-width="2"></path>
+<!-- Sale Area Gradient -->
+<path d="M 0 180 Q 100 170, 200 150 T 400 120 T 600 80 T 800 50 L 800 200 L 0 200 Z" fill="url(#sale-gradient)" opacity="0.1"></path>
+<!-- Rent Line (Secondary) -->
+<path class="chart-path-rent" d="M 0 190 Q 150 185, 300 170 T 500 160 T 800 130" fill="none" stroke="#4edea3" stroke-width="2"></path>
+<defs>
+<lineargradient id="sale-gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#adc6ff"></stop>
+<stop offset="100%" stop-color="#10131a" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Data Points -->
+<circle cx="800" cy="50" fill="#10131a" r="4" stroke="#adc6ff" stroke-width="2"></circle>
+<circle cx="800" cy="130" fill="#10131a" r="4" stroke="#4edea3" stroke-width="2"></circle>
+</svg>
+<!-- X Axis Labels -->
+<div class="absolute -bottom-6 w-full flex justify-between font-data-sm text-data-sm text-on-surface-variant">
+<span>Jan</span>
+<span>Apr</span>
+<span>Jul</span>
+<span>Oct</span>
+<span>Dec</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="area-card bg-surface-container rounded-2xl border border-surface-container-highest overflow-hidden transition-all duration-300" data-expanded="false">
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-variant transition-colors text-left" onclick="toggleAccordion(this)">
+<div class="flex items-center gap-md w-1/3">
+<span class="material-symbols-outlined text-on-surface-variant">location_city</span>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">80331, Munich 🇩🇪</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-1">Altstadt</div>
+</div>
+</div>
+<div class="flex items-center gap-lg w-1/2 justify-end pr-md">
+<div class="text-right">
+<div class="font-data-lg text-data-lg text-primary opacity-80">€12,100<span class="text-on-surface-variant font-data-sm text-data-sm">/m²</span></div>
+</div>
+<div class="text-right">
+<div class="font-data-lg text-data-lg text-secondary opacity-80">€28.00<span class="text-on-surface-variant font-data-sm text-data-sm">/m²</span></div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant chevron">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="accordion-inner bg-surface-container-low p-md border-t border-surface-container-high">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase">12-Month Price Index Trend</h3>
+</div>
+<div class="relative h-48 w-full opacity-50 flex items-center justify-center border border-dashed border-outline-variant rounded-2xl">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Chart data loading...</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="area-card bg-surface-container rounded-2xl border border-surface-container-highest overflow-hidden transition-all duration-300" data-expanded="false">
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-variant transition-colors text-left" onclick="toggleAccordion(this)">
+<div class="flex items-center gap-md w-1/3">
+<span class="material-symbols-outlined text-on-surface-variant">location_city</span>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">60311, Frankfurt 🇩🇪</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-1">Innenstadt</div>
+</div>
+</div>
+<div class="flex items-center gap-lg w-1/2 justify-end pr-md">
+<div class="text-right">
+<div class="font-data-lg text-data-lg text-primary opacity-80">€7,900<span class="text-on-surface-variant font-data-sm text-data-sm">/m²</span></div>
+</div>
+<div class="text-right">
+<div class="font-data-lg text-data-lg text-secondary opacity-80">€20.50<span class="text-on-surface-variant font-data-sm text-data-sm">/m²</span></div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant chevron">expand_more</span>
+</button>
+<div class="accordion-content">
+<div class="accordion-inner bg-surface-container-low p-md border-t border-surface-container-high">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-caps text-label-caps text-on-surface uppercase">12-Month Price Index Trend</h3>
+</div>
+<div class="relative h-48 w-full opacity-50 flex items-center justify-center border border-dashed border-outline-variant rounded-2xl">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Chart data loading...</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container-high dark:bg-surface-container-high border-t border-surface-container-highest flex justify-around items-center px-base py-sm md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150 hover:text-on-surface dark:hover:text-on-surface rounded-full" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150 hover:text-on-surface dark:hover:text-on-surface rounded-full" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-caps text-label-caps mt-1">Browse</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150 hover:text-on-surface dark:hover:text-on-surface rounded-full" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-caps text-label-caps mt-1">Map</span>
+</a>
+<!-- Active Item -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_city</span>
+<span class="font-label-caps text-label-caps mt-1">Areas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150 hover:text-on-surface dark:hover:text-on-surface rounded-full" href="#">
+<span class="material-symbols-outlined">saved_search</span>
+<span class="font-label-caps text-label-caps mt-1">Searches</span>
+</a>
+</nav>
+<script>
+        function toggleAccordion(button) {
+            const card = button.closest('.area-card');
+            const content = card.querySelector('.accordion-content');
+            const isExpanded = card.dataset.expanded === 'true';
+
+            // Close all others (optional, for accordion feel)
+            document.querySelectorAll('.area-card').forEach(c => {
+                if (c !== card) {
+                    c.dataset.expanded = 'false';
+                    c.querySelector('.accordion-content').classList.remove('expanded');
+                    c.classList.remove('expanded-card');
+                    
+                    // Reset opacity of values when collapsed
+                    const vals = c.querySelectorAll('.font-data-lg');
+                    vals.forEach(v => v.classList.add('opacity-80'));
+                }
+            });
+
+            if (isExpanded) {
+                card.dataset.expanded = 'false';
+                content.classList.remove('expanded');
+                card.classList.remove('expanded-card');
+                
+                const vals = card.querySelectorAll('.font-data-lg');
+                vals.forEach(v => v.classList.add('opacity-80'));
+            } else {
+                card.dataset.expanded = 'true';
+                content.classList.add('expanded');
+                card.classList.add('expanded-card');
+                
+                const vals = card.querySelectorAll('.font-data-lg');
+                vals.forEach(v => v.classList.remove('opacity-80'));
+                
+                // Retrigger animations if it contains a chart
+                const paths = card.querySelectorAll('path[class^="chart-path"]');
+                paths.forEach(p => {
+                    p.style.animation = 'none';
+                    p.offsetHeight; /* trigger reflow */
+                    p.style.animation = null; 
+                });
+            }
+        }
+    </script>
+</body></html>

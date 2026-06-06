@@ -27,13 +27,26 @@ class Settings(BaseSettings):
 
     # Scheduler
     enable_scheduler: bool = True
-    scrape_cron_hour: int = 3  # daily at 03:00 local
+    scrape_interval_hours: int = 6
 
     # Investment thresholds (undervaluation %)
     good_deal_threshold: float = 0.10  # >=10% cheaper than area median
     overpriced_threshold: float = -0.10  # >=10% more expensive
 
     cors_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
+
+    # JWT Auth
+    secret_key: str = "change-me-in-production-with-strong-key"
+    algorithm: str = "HS256"
+    access_token_expire_minutes: int = 60 * 24 * 7  # 7 days
+
+    # Email / Password Reset
+    smtp_host: str = ""
+    smtp_port: int = 587
+    smtp_user: str = ""
+    smtp_password: str = ""
+    smtp_from: str = "noreply@investorhome.de"
+    frontend_url: str = "http://localhost:5173"
 
 
 settings = Settings()

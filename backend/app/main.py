@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import areas, listings, scrape, searches
+from app.api import areas, auth, listings, scrape, searches
 from app.config import settings
 from app.db import init_db
 from app.scheduler import shutdown_scheduler, start_scheduler
@@ -32,6 +32,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth.router)
 app.include_router(searches.router)
 app.include_router(listings.router)
 app.include_router(areas.router)

@@ -33,6 +33,20 @@ class PropertyType(str, Enum):
 
 
 # ---------------------------------------------------------------------------
+# User
+# ---------------------------------------------------------------------------
+class User(SQLModel, table=True):
+    __tablename__ = "user"
+    id: Optional[int] = Field(default=None, primary_key=True)
+    email: str = Field(unique=True, index=True)
+    name: str = ""
+    hashed_password: str
+    created_at: datetime = Field(default_factory=utcnow)
+    reset_token: Optional[str] = Field(default=None)
+    reset_token_expires: Optional[datetime] = Field(default=None)
+
+
+# ---------------------------------------------------------------------------
 # SavedSearch
 # ---------------------------------------------------------------------------
 class SavedSearchBase(SQLModel):

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InvestorHome - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Hanken+Grotesk:wght@400..700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-primary-fixed": "#001a42",
+                        "on-surface-variant": "#c2c6d6",
+                        "on-error": "#690005",
+                        "surface-tint": "#adc6ff",
+                        "surface-container-low": "#191b23",
+                        "secondary": "#4edea3",
+                        "secondary-fixed": "#6ffbbe",
+                        "inverse-primary": "#005ac2",
+                        "on-primary": "#002e6a",
+                        "on-surface": "#e1e2ec",
+                        "on-secondary": "#003824",
+                        "surface-dim": "#10131a",
+                        "inverse-on-surface": "#2e3038",
+                        "surface-container-high": "#272a31",
+                        "primary": "#adc6ff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "tertiary-container": "#ca8100",
+                        "surface": "#10131a",
+                        "secondary-fixed-dim": "#4edea3",
+                        "surface-variant": "#32353c",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-primary-container": "#00285d",
+                        "outline-variant": "#424754",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-background": "#e1e2ec",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-highest": "#32353c",
+                        "primary-fixed": "#d8e2ff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-tertiary": "#472a00",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#00311f",
+                        "background": "#10131a",
+                        "tertiary-fixed": "#ffddb8",
+                        "error-container": "#93000a",
+                        "tertiary": "#ffb95f",
+                        "primary-container": "#4d8eff",
+                        "surface-bright": "#363941",
+                        "inverse-surface": "#e1e2ec",
+                        "outline": "#8c909f",
+                        "secondary-container": "#00a572",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#3e2400",
+                        "surface-container": "#1d2027",
+                        "surface-container-lowest": "#0b0e15"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin": "24px",
+                        "sm": "8px",
+                        "gutter": "20px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "data-md": ["IBM Plex Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "data-sm": ["IBM Plex Mono"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "data-lg": ["IBM Plex Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "data-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "data-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F172A;
+            color: #e1e2ec;
+        }
+        .surface-card {
+            background-color: #2D3748;
+            border: 1px solid #4A5568;
+        }
+        .bg-success-dim {
+            background-color: rgba(0, 165, 114, 0.15);
+        }
+        .text-success-bright {
+            color: #4edea3;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md antialiased pb-20 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface w-full sticky top-0 z-50 bg-surface-container-low dark:bg-surface-container-low flex justify-between items-center px-margin py-sm w-full border-b-0 shadow-none">
+<button class="text-on-surface-variant hover:bg-surface-variant transition-colors duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">monitoring</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary tracking-tight">InvestorHome</h1>
+<button class="text-on-surface-variant hover:bg-surface-variant transition-colors duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">tune</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-margin py-lg max-w-7xl mx-auto w-full flex flex-col gap-lg">
+<!-- Dashboard Header -->
+<div class="flex flex-col gap-xs mb-sm">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Dashboard Overview</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time market insights and high-potential opportunities.</p>
+</div>
+<!-- KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- KPI 1 -->
+<div class="surface-card rounded-xl p-lg flex flex-col justify-between h-full">
+<div class="flex items-center gap-sm text-on-surface-variant mb-xl">
+<span class="material-symbols-outlined text-outline">real_estate_agent</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Active Listings</span>
+</div>
+<div>
+<span class="font-data-lg text-data-lg text-on-surface text-[32px] leading-tight font-semibold block">12,482</span>
+<div class="flex items-center gap-1 mt-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-data-sm text-data-sm">+3.2% vs last week</span>
+</div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="surface-card rounded-xl p-lg flex flex-col justify-between h-full">
+<div class="flex items-center gap-sm text-on-surface-variant mb-xl">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary">Good Deals</span>
+</div>
+<div>
+<span class="font-data-lg text-data-lg text-on-surface text-[32px] leading-tight font-semibold block">142</span>
+<div class="flex items-center gap-1 mt-xs text-on-surface-variant">
+<span class="font-data-sm text-data-sm">Matching your criteria</span>
+</div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="surface-card rounded-xl p-lg flex flex-col justify-between h-full">
+<div class="flex items-center gap-sm text-on-surface-variant mb-xl">
+<span class="material-symbols-outlined text-outline">monitoring</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Best Undervaluation</span>
+</div>
+<div>
+<span class="font-data-lg text-data-lg text-secondary text-[32px] leading-tight font-semibold block">-22.4%</span>
+<div class="flex items-center gap-1 mt-xs text-on-surface-variant">
+<span class="font-data-sm text-data-sm">Below estimated market value</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Deals Section -->
+<div class="mt-lg flex flex-col gap-md">
+<div class="flex justify-between items-end mb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Top Deals</h3>
+<button class="font-label-caps text-label-caps text-primary hover:text-primary-container transition-colors uppercase tracking-wider flex items-center gap-1 rounded-full px-4 py-1.5 border border-primary/20">
+                    View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- Deal Card 1 -->
+<div class="surface-card rounded-xl overflow-hidden group cursor-pointer hover:bg-surface-variant transition-colors flex flex-col">
+<div class="h-40 w-full relative bg-surface-container">
+<img alt="Luxury apartment interior" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A sophisticated, modern apartment interior in a luxury building. The room features floor-to-ceiling windows letting in soft natural light, highlighting sleek minimalist furniture. The color palette is composed of cool grays, deep navy, and crisp whites, evoking a high-end, professional urban lifestyle. Subtle warm lighting accents the textured walls." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPLboV1srx_YOFWsXR4AhutNGynfyXP1xn0prfpzcBOj62GaN43hkQi2yZoyzTHw0sWQjJZZ-w0LOHyd5DjQpId407qHc8crBpu8zNqQYZiX-xfX3nRUX4C8OIZ6JS4eoKyiP7ILnIS6CvChsMsIHszATDREdkohoQA8wlLnLlWJWkL-lQarrBq9rLISnMXvoUKmByc82HYhS1n8wzEdfaZjLHK4nwVmJzj4Vp08IoiIZyZQRo6ENiBnnOCwBi2jqElmZMaONwJx8"/>
+<div class="absolute top-sm right-sm bg-success-dim text-success-bright px-3 py-1 rounded-full backdrop-blur-sm border border-secondary/20">
+<span class="font-label-caps text-label-caps font-bold uppercase tracking-wider">Good Deal</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-sm flex-grow">
+<div class="flex justify-between items-start">
+<span class="font-data-lg text-data-lg font-semibold text-on-surface">€450,000</span>
+<span class="font-data-md text-data-md text-secondary">-15.2%</span>
+</div>
+<div class="grid grid-cols-2 gap-y-xs gap-x-sm mt-xs">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-body-sm text-body-sm">Berlin 🇩🇪</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">straighten</span>
+<span class="font-data-sm text-data-sm">85 m²</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">euro</span>
+<span class="font-data-sm text-data-sm">€5,294/m²</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-data-sm text-data-sm">4.8% Yield</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="surface-card rounded-xl overflow-hidden group cursor-pointer hover:bg-surface-variant transition-colors flex flex-col">
+<div class="h-40 w-full relative bg-surface-container">
+<img alt="Modern urban apartment building" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A striking exterior shot of a contemporary residential building at twilight. The architecture features clean lines, glass balconies, and dark metallic cladding. The scene is illuminated by warm, inviting lights from within the apartments, contrasting sharply against a deep blue evening sky. The overall mood is affluent, secure, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASBTSLc2Suo6_2rtd77zRRHFLW_Tdx3WHMXSkk-EwUwqs4k5Geg1G9SytyPSYAQTxNkg8OyY7pGaD9iJTXrXZ-d2ZksXG5V12cJOf-IxmmZS5FD0mXuRN6uMkK7Om78pPlTmvBzneb6UfT_zZp6hHBfzPVQ2Zs2LTuuAh9zVLQoHqKEe3k4CniCjHHrzd-qRSPCVp09Y0YZMRIKwy5LbNXSO7CakLwePg79kiRPsTRtrJ-Rm_7SNlXssRzrDr0hrfB4_eNJwAs1pA"/>
+<div class="absolute top-sm right-sm bg-success-dim text-success-bright px-3 py-1 rounded-full backdrop-blur-sm border border-secondary/20">
+<span class="font-label-caps text-label-caps font-bold uppercase tracking-wider">Good Deal</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-sm flex-grow">
+<div class="flex justify-between items-start">
+<span class="font-data-lg text-data-lg font-semibold text-on-surface">€320,000</span>
+<span class="font-data-md text-data-md text-secondary">-18.5%</span>
+</div>
+<div class="grid grid-cols-2 gap-y-xs gap-x-sm mt-xs">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-body-sm text-body-sm">Berlin 🇩🇪</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">straighten</span>
+<span class="font-data-sm text-data-sm">62 m²</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">euro</span>
+<span class="font-data-sm text-data-sm">€5,161/m²</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-data-sm text-data-sm">5.1% Yield</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Deal Card 3 -->
+<div class="surface-card rounded-xl overflow-hidden group cursor-pointer hover:bg-surface-variant transition-colors flex flex-col">
+<div class="h-40 w-full relative bg-surface-container">
+<img alt="Bright minimalist living space" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="An expansive, light-filled living area in an upscale loft apartment. The design utilizes a stark, minimal aesthetic with polished concrete floors, white walls, and dark metal fixtures. Large industrial windows frame a generic urban skyline. The atmosphere conveys high value, pristine condition, and modern architectural elegance suitable for a luxury investment portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXv9bZ-XP8UaowoqMJgbkSkxJwAzwftI_9eNVAmrct2pQHrBnzQ3nLu6b5PaJKWHmT3d3wsZiDkB6qHkOZLG4dLwk255dtUAQHBfzfaS1wsv8W_UQS-5xaR7jhI4hXU_SnyMBt7ZhwQ4noNdWmtUkx_1T-nQqtIY2k_E4WDaiuSccUTiXpePYs5bGflvCY6FQMW4k3MzUhq5BwSr5iTyPSpIuxnK6RSrVJniWKT4IB3LjLRn4kzAKZblHVuHcqubKG07KfX8knQdk"/>
+<div class="absolute top-sm right-sm bg-success-dim text-success-bright px-3 py-1 rounded-full backdrop-blur-sm border border-secondary/20">
+<span class="font-label-caps text-label-caps font-bold uppercase tracking-wider">Good Deal</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-sm flex-grow">
+<div class="flex justify-between items-start">
+<span class="font-data-lg text-data-lg font-semibold text-on-surface">€890,000</span>
+<span class="font-data-md text-data-md text-secondary">-11.0%</span>
+</div>
+<div class="grid grid-cols-2 gap-y-xs gap-x-sm mt-xs">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-body-sm text-body-sm">Berlin 🇩🇪</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">straighten</span>
+<span class="font-data-sm text-data-sm">145 m²</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">euro</span>
+<span class="font-data-sm text-data-sm">€6,137/m²</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-data-sm text-data-sm">4.2% Yield</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-surface-container dark:bg-surface-container fixed bottom-0 w-full z-50 flex justify-around items-center w-full px-base py-sm md:hidden shadow-none border-t-0">
+<!-- Active Tab: Overview -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Overview</span>
+</button>
+<!-- Inactive Tab: Browse -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface scale-95 transition-transform duration-150 px-4 py-1 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+<span class="font-label-caps text-label-caps mt-1">Browse</span>
+</button>
+<!-- Inactive Tab: Map -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface scale-95 transition-transform duration-150 px-4 py-1 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-caps text-label-caps mt-1">Map</span>
+</button>
+<!-- Inactive Tab: Areas -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface scale-95 transition-transform duration-150 px-4 py-1 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">location_city</span>
+<span class="font-label-caps text-label-caps mt-1">Areas</span>
+</button>
+<!-- Inactive Tab: Searches -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface scale-95 transition-transform duration-150 px-4 py-1 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">saved_search</span>
+<span class="font-label-caps text-label-caps mt-1">Searches</span>
+</button>
+</nav>
+</body></html>

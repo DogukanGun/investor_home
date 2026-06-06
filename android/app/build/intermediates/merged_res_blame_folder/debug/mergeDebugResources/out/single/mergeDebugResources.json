@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/dogukangundogan/.gradle/daemon/8.8/de.investorhome.app-debug-59:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/dogukangundogan/.gradle/daemon/8.8/de.investorhome.app-main-61:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "de.investorhome.app-debug-59:/xml_network_security_config.xml.flat",
+        "source": "de.investorhome.app-main-61:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "/Users/dogukangundogan/.gradle/daemon/8.8/de.investorhome.app-debug-59:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/dogukangundogan/.gradle/daemon/8.8/de.investorhome.app-main-61:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/dogukangundogan/.gradle/daemon/8.8/de.investorhome.app-debug-59:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/dogukangundogan/.gradle/daemon/8.8/de.investorhome.app-main-61:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/dogukangundogan/.gradle/daemon/8.8/de.investorhome.app-debug-59:/xml_backup_rules.xml.flat",
+        "source": "/Users/dogukangundogan/.gradle/daemon/8.8/de.investorhome.app-main-61:/xml/backup_rules.xml"
+    }
+]

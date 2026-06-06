@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "de.investorhome.app-mergeDebugResources-57:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/dogukangundogan/.gradle/caches/8.8/transforms/e74517750e928db3724545dd5b471c27/transformed/core-1.12.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "/Users/dogukangundogan/.gradle/caches/8.8/transforms/b8a7f257a214469c6e1b4224592c7563/transformed/appcompat-1.6.1/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        }
+    ]
+}

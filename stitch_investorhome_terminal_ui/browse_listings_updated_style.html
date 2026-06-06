@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Browse Listings - InvestorHome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700&amp;family=Hanken+Grotesk:wght@400;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-primary-fixed": "#001a42",
+                        "on-surface-variant": "#c2c6d6",
+                        "on-error": "#690005",
+                        "surface-tint": "#adc6ff",
+                        "surface-container-low": "#191b23",
+                        "secondary": "#4edea3",
+                        "secondary-fixed": "#6ffbbe",
+                        "inverse-primary": "#005ac2",
+                        "on-primary": "#002e6a",
+                        "on-surface": "#e1e2ec",
+                        "on-secondary": "#003824",
+                        "surface-dim": "#10131a",
+                        "inverse-on-surface": "#2e3038",
+                        "surface-container-high": "#272a31",
+                        "primary": "#adc6ff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "tertiary-container": "#ca8100",
+                        "surface": "#10131a",
+                        "secondary-fixed-dim": "#4edea3",
+                        "surface-variant": "#32353c",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-primary-container": "#00285d",
+                        "outline-variant": "#424754",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-background": "#e1e2ec",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-highest": "#32353c",
+                        "primary-fixed": "#d8e2ff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-tertiary": "#472a00",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#00311f",
+                        "background": "#10131a",
+                        "tertiary-fixed": "#ffddb8",
+                        "error-container": "#93000a",
+                        "tertiary": "#ffb95f",
+                        "primary-container": "#4d8eff",
+                        "surface-bright": "#363941",
+                        "inverse-surface": "#e1e2ec",
+                        "outline": "#8c909f",
+                        "secondary-container": "#00a572",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#3e2400",
+                        "surface-container": "#1d2027",
+                        "surface-container-lowest": "#0b0e15"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin": "24px",
+                        "sm": "8px",
+                        "gutter": "20px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "data-md": ["IBM Plex Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "data-sm": ["IBM Plex Mono"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "data-lg": ["IBM Plex Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "data-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "data-lg": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0F172A; /* Fallback closely matching background config */ }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-50 bg-surface dark:bg-surface flex justify-between items-center px-margin py-sm transition-colors duration-200">
+<button class="flex items-center justify-center p-2 text-primary dark:text-primary hover:bg-surface-variant dark:hover:bg-surface-variant rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">monitoring</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary tracking-tight">InvestorHome</h1>
+<button class="flex items-center justify-center p-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-variant dark:hover:bg-surface-variant rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">tune</span>
+</button>
+</header>
+<!-- Filters & Toggles (Sticky Sub-nav) -->
+<div class="sticky top-[72px] z-40 bg-surface/90 backdrop-blur-md px-margin py-sm flex flex-col sm:flex-row sm:items-center justify-between gap-md border-b border-surface-container-low shadow-sm">
+<div class="flex items-center gap-sm overflow-x-auto pb-1 sm:pb-0 hide-scrollbar">
+<button class="flex-shrink-0 bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-2 rounded-full uppercase tracking-widest transition-colors duration-200">All</button>
+<button class="flex-shrink-0 bg-surface-container text-on-surface hover:bg-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full uppercase tracking-widest border border-outline-variant transition-colors duration-200">Good</button>
+<button class="flex-shrink-0 bg-surface-container text-on-surface hover:bg-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full uppercase tracking-widest border border-outline-variant transition-colors duration-200">Fair</button>
+<button class="flex-shrink-0 bg-surface-container text-on-surface hover:bg-surface-variant font-label-caps text-label-caps px-4 py-2 rounded-full uppercase tracking-widest border border-outline-variant transition-colors duration-200">Overpriced</button>
+</div>
+<div class="flex items-center bg-surface-container-high rounded-full p-1 border border-outline-variant self-start sm:self-auto flex-shrink-0">
+<button class="flex items-center gap-xs px-3 py-1.5 rounded-full bg-surface-variant text-on-surface shadow-sm transition-all">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+<span class="font-label-caps text-label-caps uppercase">List</span>
+</button>
+<button class="flex items-center gap-xs px-3 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface transition-all">
+<span class="material-symbols-outlined text-[18px]">map</span>
+<span class="font-label-caps text-label-caps uppercase">Map</span>
+</button>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin py-lg max-w-7xl mx-auto w-full">
+<!-- Metrics Header (Analytical Context) -->
+<div class="mb-lg flex flex-col md:flex-row justify-between items-start md:items-end gap-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Market Opportunities</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Analyzing 1,245 active listings against historical median baselines.</p>
+</div>
+<div class="font-data-sm text-data-sm text-on-surface-variant flex items-center gap-xs bg-surface-container-low px-3 py-1.5 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">update</span>
+                Data refreshed 2 mins ago
+            </div>
+</div>
+<!-- Listing Grid (Bento/Card Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Card 1: Good Deal -->
+<article class="rounded-xl overflow-hidden relative group border border-outline-variant flex flex-col shadow-none hover:bg-surface-container-high transition-colors duration-300">
+<!-- Image & Top Badges -->
+<div class="relative h-48 w-full bg-surface-container-highest overflow-hidden">
+<img alt="Property preview" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transform" data-alt="A modern, high-end apartment exterior in a sunny European city, captured from a slightly elevated angle. The architecture features clean lines, large glass balconies, and minimalist styling typical of modern real estate. The lighting is bright daylight, creating a sophisticated and inviting mood. The color palette aligns with a modern corporate aesthetic, utilizing crisp whites, deep slate shadows, and vibrant green foliage accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2K78JQwk6WrMgUPusdNKiqLQ4U--mrfHiU9nyFn4FCd6e87GJp6l9RyXHPT_j6u0XHgf5OLp9Y5tvVN45QqLHx095aNAW2tOxh5B_Ig51DemsEgJAf4e0fVOvH2BEKLYNgre96wacaD7olNZSHNPy-_YNnPpNWqo-XtfkcbUU9nlL64Cy2k1BZxuKNBevDpbvv3aTKbaJxCOkwv0q6NWxGQpReBFZbUiMPiQH408pioUPcgXwzFfQP_4hEHXJ2fYacNFpTwyI3A4"/>
+<div class="absolute top-sm left-sm right-sm flex justify-between items-start z-10">
+<div class="bg-on-secondary text-secondary-fixed font-label-caps text-label-caps px-2 py-1 uppercase tracking-wider flex items-center gap-xs shadow-md rounded-full">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">trending_down</span>
+                            Good
+                        </div>
+<div class="bg-surface-bright/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps px-2 py-1 border border-outline-variant shadow-sm uppercase rounded-full">
+                            Idealista
+                        </div>
+</div>
+</div>
+<!-- Content Area -->
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                Barcelona 🇪🇸
+                            </div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">€450,000</h3>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark_add</span>
+</button>
+</div>
+<!-- Data Grid -->
+<div class="mt-auto bg-surface-container-low rounded-lg p-sm grid grid-cols-3 gap-xs border border-outline-variant/50">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Size</span>
+<span class="font-data-md text-data-md text-on-surface">85 m²</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/30 pl-sm">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Price/m²</span>
+<span class="font-data-md text-data-md text-on-surface">€5,294</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/30 pl-sm">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Vs Median</span>
+<span class="font-data-md text-data-md text-secondary flex items-center">
+                                -12% <span class="material-symbols-outlined text-[14px]">arrow_drop_down</span>
+</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Fair Deal -->
+<article class="rounded-xl overflow-hidden relative group border border-outline-variant flex flex-col shadow-none hover:bg-surface-container-high transition-colors duration-300">
+<div class="relative h-48 w-full bg-surface-container-highest overflow-hidden">
+<img alt="Property preview" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transform" data-alt="A luxurious suburban house exterior viewed from the driveway during golden hour. The home features modern architectural elements, mixed materials like stone and wood, and large inviting windows. The warm, low-angle sunlight casts long shadows, creating an upscale and serene mood. The image aesthetic blends a sophisticated corporate palette with natural, warm earth tones and deep slate contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCDnlbgLBtkUk14YYgIjCwG0H10xFghvuFhVNWgovnnVXJDyH5KIv9jU1bEDaNFbVpVcNV44gK_aHSXW4IJtNECDQBaJ-dUPvx1FQZ57ByuM3BgcUHDAeK-ab80YXQK94zAJ7PudSNCZYRpjapRmCCtocgmOddB8ZVm4h5JP769Cgl8aeQtA91Uz7mBIEI65bo68Ou-hfL2Qd1VxinIbdhhz0Zm1kOOiXiFaj-g4DDDm0yXOfwjs3uY7nT-Q6us19foPOdt1ZnEvM"/>
+<div class="absolute top-sm left-sm right-sm flex justify-between items-start z-10">
+<div class="bg-on-tertiary text-tertiary-fixed font-label-caps text-label-caps px-2 py-1 uppercase tracking-wider flex items-center gap-xs shadow-md rounded-full">
+<span class="material-symbols-outlined text-[14px]">horizontal_rule</span>
+                            Fair
+                        </div>
+<div class="bg-surface-bright/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps px-2 py-1 border border-outline-variant shadow-sm uppercase rounded-full">
+                            Fotocasa
+                        </div>
+</div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                Madrid 🇪🇸
+                            </div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">€820,000</h3>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark_add</span>
+</button>
+</div>
+<div class="mt-auto bg-surface-container-low rounded-lg p-sm grid grid-cols-3 gap-xs border border-outline-variant/50">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Size</span>
+<span class="font-data-md text-data-md text-on-surface">140 m²</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/30 pl-sm">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Price/m²</span>
+<span class="font-data-md text-data-md text-on-surface">€5,857</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/30 pl-sm">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Vs Median</span>
+<span class="font-data-md text-data-md text-tertiary flex items-center">
+                                +2% <span class="material-symbols-outlined text-[14px]">arrow_drop_up</span>
+</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Overpriced Deal -->
+<article class="rounded-xl overflow-hidden relative group border border-outline-variant flex flex-col shadow-none hover:bg-surface-container-high transition-colors duration-300">
+<div class="relative h-48 w-full bg-surface-container-highest overflow-hidden">
+<img alt="Property preview" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transform" data-alt="A compact, urban apartment interior showing a minimalist living space with large industrial windows overlooking a cityscape. The room is styled with austere, modern furniture and a stark, neutral color palette. The lighting is diffused and slightly cool, giving the image an analytical, high-stakes corporate edge. Deep slate shadows contrast sharply with crisp white walls and subtle red accent pieces in the decor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT3Jepdgo_dKIsbgzvYnKm9XctszckdHezRHLtL-XO82LDspkyeQ4HwAGkcduhkI3fp5seTMfll3C6G3fFWZXhn3HxYL3qFkts18R-eqEepzsc6gaWuuIM79mZ6NcW6kGF-nOOIe4zeT2jiCTkMJ8XuOGXaOvkTbL04sn0wxbztNMIlFqexbxDvc2jhlCCDZQrKj2vn7MfW_zo42AFCU3jKL_EHtLM5W9dW1S7B00NJHm0BjAMyZl9eGm61LxQHOQ0n4RwTVDWlRE"/>
+<div class="absolute top-sm left-sm right-sm flex justify-between items-start z-10">
+<div class="bg-on-error text-error font-label-caps text-label-caps px-2 py-1 uppercase tracking-wider flex items-center gap-xs shadow-md rounded-full">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+                            Overpriced
+                        </div>
+<div class="bg-surface-bright/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps px-2 py-1 border border-outline-variant shadow-sm uppercase rounded-full">
+                            Habitaclia
+                        </div>
+</div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                Valencia 🇪🇸
+                            </div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">€315,000</h3>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark_add</span>
+</button>
+</div>
+<div class="mt-auto bg-surface-container-low rounded-lg p-sm grid grid-cols-3 gap-xs border border-outline-variant/50">
+<div class="flex flex-col">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Size</span>
+<span class="font-data-md text-data-md text-on-surface">65 m²</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/30 pl-sm">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Price/m²</span>
+<span class="font-data-md text-data-md text-on-surface">€4,846</span>
+</div>
+<div class="flex flex-col border-l border-outline-variant/30 pl-sm">
+<span class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Vs Median</span>
+<span class="font-data-md text-data-md text-error flex items-center">
+                                +18% <span class="material-symbols-outlined text-[14px]">arrow_drop_up</span>
+</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container dark:bg-surface-container flex justify-around items-center px-base py-sm border-t-0 shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
+<!-- Index 0: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150 hover:text-on-surface dark:hover:text-on-surface" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps mt-1">Overview</span>
+</a>
+<!-- Index 1: Browse (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-caps text-label-caps mt-1">Browse</span>
+</a>
+<!-- Index 2: Map -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150 hover:text-on-surface dark:hover:text-on-surface" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-caps text-label-caps mt-1">Map</span>
+</a>
+<!-- Index 3: Areas -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150 hover:text-on-surface dark:hover:text-on-surface" href="#">
+<span class="material-symbols-outlined">location_city</span>
+<span class="font-label-caps text-label-caps mt-1">Areas</span>
+</a>
+<!-- Index 4: Searches -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150 hover:text-on-surface dark:hover:text-on-surface" href="#">
+<span class="material-symbols-outlined">saved_search</span>
+<span class="font-label-caps text-label-caps mt-1">Searches</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InvestorHome</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_account">Create account</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="log_in">Log in</string>
+    <string name="password_mismatch">Passwords do not match</string>
+    <string name="email_error">Please enter a valid email</string>
+    <string name="password_error">Password must be at least 6 characters</string>
+    <string name="access_dashboard">Access your professional analytics dashboard</string>
+    <string name="dashboard_title">Overview</string>
+    <string name="browse_title">Browse</string>
+    <string name="map_title">Map</string>
+    <string name="areas_title">Areas</string>
+    <string name="searches_title">Searches</string>
+    <string name="logout">Logout</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="check_your_email">Check Your Email</string>
+    <string name="reset_link_sent">We\'ve sent a password reset link to your email. Click the link in your email to reset your password.</string>
+    <string name="link_expires_in">The link will expire in 1 hour.</string>
+    <string name="back_to_login">Back to Login</string>
+    <string name="remember_password">Remember your password?</string>
+    <string name="enter_email_reset">Enter your email to receive a password reset link.</string>
+</resources>

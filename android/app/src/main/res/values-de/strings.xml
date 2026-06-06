@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InvestorHome</string>
+    <string name="sign_in">Anmelden</string>
+    <string name="sign_up">Registrieren</string>
+    <string name="email">E-Mail</string>
+    <string name="password">Passwort</string>
+    <string name="full_name">Vollständiger Name</string>
+    <string name="confirm_password">Passwort bestätigen</string>
+    <string name="create_account">Konto erstellen</string>
+    <string name="already_have_account">Haben Sie bereits ein Konto?</string>
+    <string name="dont_have_account">Kein Konto?</string>
+    <string name="log_in">Einloggen</string>
+    <string name="password_mismatch">Passwörter stimmen nicht überein</string>
+    <string name="email_error">Bitte geben Sie eine gültige E-Mail ein</string>
+    <string name="password_error">Passwort muss mindestens 6 Zeichen lang sein</string>
+    <string name="access_dashboard">Zugriff auf Ihr professionelles Analyse-Dashboard</string>
+    <string name="dashboard_title">Übersicht</string>
+    <string name="browse_title">Durchsuchen</string>
+    <string name="map_title">Karte</string>
+    <string name="areas_title">Gebiete</string>
+    <string name="searches_title">Suchen</string>
+    <string name="logout">Abmelden</string>
+</resources>
