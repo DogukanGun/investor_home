@@ -14,6 +14,7 @@ class SessionManager(private val context: Context) {
     private val EMAIL = stringPreferencesKey("email")
     private val NAME = stringPreferencesKey("name")
     private val TOKEN = stringPreferencesKey("token")
+    private val HAS_REGISTERED = booleanPreferencesKey("has_registered")
 
     suspend fun isLoggedIn(): Boolean {
         return context.dataStore.data.firstOrNull()?.get(IS_LOGGED_IN) ?: false
@@ -50,6 +51,16 @@ class SessionManager(private val context: Context) {
             email = prefs[EMAIL] ?: "",
             name = prefs[NAME] ?: "",
         )
+    }
+
+    suspend fun hasRegistered(): Boolean {
+        return context.dataStore.data.firstOrNull()?.get(HAS_REGISTERED) ?: false
+    }
+
+    suspend fun setHasRegistered(value: Boolean) {
+        context.dataStore.edit { preferences ->
+            preferences[HAS_REGISTERED] = value
+        }
     }
 }
 

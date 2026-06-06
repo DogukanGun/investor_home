@@ -23,14 +23,14 @@ object RetrofitClientManager {
             val originalRequest = chain.request()
             val token = runBlocking { sessionManager.getToken() }
 
-            val newRequest = if (token != null) {
-                originalRequest.newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
-                    .build()
-            } else {
-                originalRequest
+            val newRequest = originalRequest.newBuilder()
+                .addHeader("X-Mobile-Client", "investorhome-android")
+
+            if (token != null) {
+                newRequest.addHeader("Authorization", "Bearer $token")
             }
-            chain.proceed(newRequest)
+
+            chain.proceed(newRequest.build())
         }
 
         val okHttpClient = OkHttpClient.Builder()

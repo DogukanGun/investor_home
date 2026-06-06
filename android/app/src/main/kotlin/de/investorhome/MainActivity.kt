@@ -26,14 +26,21 @@ class MainActivity : ComponentActivity() {
             InvestorHomeTheme {
                 Surface(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
                     val isLoggedIn = remember { mutableStateOf<Boolean?>(null) }
+                    val hasRegistered = remember { mutableStateOf<Boolean?>(null) }
 
                     LaunchedEffect(Unit) {
                         isLoggedIn.value = sessionManager.isLoggedIn()
+                        hasRegistered.value = sessionManager.hasRegistered()
+                    }
+
+                    val startRoute = when {
+                        isLoggedIn.value == true -> "main"
+                        hasRegistered.value == true -> "auth/login"
+                        else -> "auth/register"
                     }
 
                     when (isLoggedIn.value) {
-                        true -> AppNavigation(startRoute = "main")
-                        false -> AppNavigation(startRoute = "auth/login")
+                        true, false -> AppNavigation(startRoute = startRoute)
                         null -> {} // Loading
                     }
                 }

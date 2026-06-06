@@ -185,6 +185,7 @@ fun RegisterScreen(navController: NavController) {
                                 name = response.name,
                                 token = response.access_token
                             )
+                            sessionManager.setHasRegistered(true)
                             navController.navigate("main") {
                                 popUpTo("auth/login") { inclusive = true }
                             }
