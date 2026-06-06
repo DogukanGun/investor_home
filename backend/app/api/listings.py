@@ -15,6 +15,8 @@ from app.services.analysis import (
     latest_area_median,
     undervaluation,
 )
+from app.services.geo import within_radius
+from app.services.geocoder import geocode
 
 router = APIRouter(prefix="/api/listings", tags=["listings"])
 
@@ -48,6 +50,7 @@ def list_listings(
     session: Session = Depends(get_session),
     city: Optional[str] = None,
     postal_code: Optional[str] = None,
+    radius_km: Optional[float] = None,
     portal: Optional[Portal] = None,
     listing_kind: ListingKind = ListingKind.sale,
     property_type: Optional[PropertyType] = None,
@@ -58,12 +61,22 @@ def list_listings(
     sort: str = Query("undervaluation", pattern="^(undervaluation|price|price_per_m2|yield)$"),
     limit: int = 200,
 ):
+    # Determine if we should use radius-based filtering
+    center_coords: Optional[tuple[float, float]] = None
+    use_radius = postal_code and radius_km is not None and radius_km > 0
+    if use_radius:
+        center_coords = geocode(postal_code, city, country or "de")
+        if center_coords is None:
+            # Geocoder failed: fall back to exact postal_code match
+            use_radius = False
+
     stmt = select(Listing).where(Listing.is_active, Listing.listing_kind == listing_kind)
     if country:
         stmt = stmt.where(Listing.country == country)
     if city:
         stmt = stmt.where(Listing.city.ilike(f"%{city}%"))
-    if postal_code:
+    if postal_code and not use_radius:
+        # Exact postal code match (when radius is not being used)
         stmt = stmt.where(Listing.postal_code == postal_code)
     if portal:
         stmt = stmt.where(Listing.portal == portal)
@@ -77,6 +90,11 @@ def list_listings(
     listings = session.exec(stmt).all()
     out: list[ListingOut] = []
     for ls in listings:
+        # Apply radius filter if enabled
+        if use_radius and center_coords:
+            if not within_radius(center_coords[0], center_coords[1],
+                                ls.latitude, ls.longitude, radius_km):
+                continue
         ak = area_key_for(ls)
         median = latest_area_median(session, ak, ls.listing_kind)
         under = undervaluation(ls.price_per_m2, median)

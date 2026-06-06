@@ -9,6 +9,7 @@ const COUNTRIES = Object.entries(countryLabel);
 
 const empty: SavedSearchInput = {
   name: "", city: "", postal_code: "",
+  radius_km: null,
   country: "de",
   listing_kind: "sale", property_type: "apartment",
   price_min: null, price_max: null, size_min: null, size_max: null,
@@ -70,6 +71,17 @@ export default function SearchesPage() {
           <label className="field"><span>{t("searches.form.postalCode")}</span>
             <input value={form.postal_code ?? ""} onChange={(e) => set({ postal_code: e.target.value })} placeholder="80333" />
           </label>
+          {form.postal_code && (
+            <label className="field"><span>{t("searches.form.radiusKm")}</span>
+              <select value={form.radius_km ?? ""} onChange={(e) => set({ radius_km: e.target.value === "" ? null : Number(e.target.value) })}>
+                <option value="">{t("searches.form.radiusNone")}</option>
+                <option value={5}>5 km</option>
+                <option value={10}>10 km</option>
+                <option value={20}>20 km</option>
+                <option value={50}>50 km</option>
+              </select>
+            </label>
+          )}
           <label className="field"><span>{t("searches.form.country")}</span>
             <select value={form.country} onChange={(e) => set({ country: e.target.value })}>
               {COUNTRIES.map(([code, label]) => <option key={code} value={code}>{label}</option>)}
@@ -124,7 +136,7 @@ export default function SearchesPage() {
               {searches.map((s) => (
                 <tr key={s.id}>
                   <td><b>{s.name}</b></td>
-                  <td>{s.city}{s.postal_code ? ` · ${s.postal_code}` : ""}</td>
+                  <td>{s.city}{s.postal_code ? ` · ${s.postal_code}` : ""}{s.postal_code && s.radius_km ? ` ±${s.radius_km}km` : ""}</td>
                   <td>{countryLabel[s.country] ?? s.country}</td>
                   <td>{s.listing_kind}</td>
                   <td>{s.property_type}</td>

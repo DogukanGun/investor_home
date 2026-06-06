@@ -22,6 +22,8 @@ export default function ListingsPage() {
   const { t } = useTranslation();
   const [rating, setRating] = useState("");
   const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [radiusKm, setRadiusKm] = useState(10);
   const [portal, setPortal] = useState("");
   const [country, setCountry] = useState("");
   const [sort, setSort] = useState("undervaluation");
@@ -39,6 +41,10 @@ export default function ListingsPage() {
   if (rating) params.rating = rating;
   if (portal) params.portal = portal;
   if (country) params.country = country;
+  if (postalCode) {
+    params.postal_code = postalCode;
+    params.radius_km = String(radiusKm);
+  }
 
   const { data: listings = [], isFetching } = useQuery({
     queryKey: ["listings", params],
@@ -63,6 +69,21 @@ export default function ListingsPage() {
           <span>{t("browse.filter.city")}</span>
           <input value={city} onChange={(e) => setCity(e.target.value)} placeholder={t("browse.filter.cityPlaceholder")} />
         </label>
+        <label className="field" style={{ width: "7rem" }}>
+          <span>{t("browse.filter.postalCode")}</span>
+          <input value={postalCode} onChange={(e) => setPostalCode(e.target.value)} placeholder={t("browse.filter.postalCodePlaceholder")} />
+        </label>
+        {postalCode && (
+          <label className="field">
+            <span>{t("browse.filter.radius")}</span>
+            <select value={radiusKm} onChange={(e) => setRadiusKm(Number(e.target.value))}>
+              <option value={5}>5 km</option>
+              <option value={10}>10 km</option>
+              <option value={20}>20 km</option>
+              <option value={50}>50 km</option>
+            </select>
+          </label>
+        )}
         <label className="field">
           <span>{t("browse.filter.country")}</span>
           <select value={country} onChange={(e) => setCountry(e.target.value)}>

@@ -7,6 +7,7 @@ export interface SavedSearch {
   name: string;
   city: string;
   postal_code?: string | null;
+  radius_km?: number | null;
   country: string;
   listing_kind: ListingKind;
   property_type: PropertyType;

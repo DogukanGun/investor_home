@@ -53,6 +53,7 @@ class SavedSearchBase(SQLModel):
     name: str
     city: str
     postal_code: Optional[str] = None
+    radius_km: Optional[float] = None
     country: str = Field(default="de")
     listing_kind: ListingKind = ListingKind.sale
     property_type: PropertyType = PropertyType.apartment
@@ -79,6 +80,7 @@ class SavedSearchUpdate(SQLModel):
     name: Optional[str] = None
     city: Optional[str] = None
     postal_code: Optional[str] = None
+    radius_km: Optional[float] = None
     country: Optional[str] = None
     listing_kind: Optional[ListingKind] = None
     property_type: Optional[PropertyType] = None

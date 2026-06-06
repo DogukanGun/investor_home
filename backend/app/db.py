@@ -21,6 +21,7 @@ def init_db() -> None:
         ("listing", "currency", "TEXT DEFAULT 'EUR'"),
         ("listing", "country", "TEXT DEFAULT 'de'"),
         ("saved_search", "country", "TEXT DEFAULT 'de'"),
+        ("saved_search", "radius_km", "REAL"),
     ]
     with engine.connect() as conn:
         for tbl, col, typ in migrations:
