@@ -7,6 +7,8 @@ import type {
   SavedSearchInput,
 } from "./types";
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
+
 async function req<T>(url: string, init?: RequestInit): Promise<T> {
   const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
   const headers: HeadersInit = { "Content-Type": "application/json" };
@@ -14,7 +16,8 @@ async function req<T>(url: string, init?: RequestInit): Promise<T> {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
-  const res = await fetch(url, {
+  const fullUrl = API_BASE + url;
+  const res = await fetch(fullUrl, {
     headers,
     ...init,
   });
